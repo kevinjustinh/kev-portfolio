@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero — Golden Gate Bridge Background Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F5F2ED; --ink: #111110; --muted: #7a7570;
+      --accent: #E8631A; --surface: #FFFFFF; --border: rgba(15,15,15,0.08);
+    }
+    body { font-family: 'DM Sans', sans-serif; background: #111; }
+
+    .hero {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 0 5rem;
+      min-height: 620px;
+    }
+
+    .bridge-svg {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 108%;
+      height: auto;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+
+    .body-text {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+
+    .cta-group { display: flex; align-items: center; gap: 1.5rem; }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff; background: var(--accent);
+      border-radius: 2px; padding: 0.72rem 1.5rem;
+      text-decoration: none;
+    }
+
+    .btn-text {
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .stats-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      padding: 1.75rem;
+      min-width: 215px;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+
+    .stat-value {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2.2rem; line-height: 1; color: var(--ink);
+    }
+    .stat-value sup { font-size: 1.2rem; color: var(--muted); }
+
+    .stat-label {
+      font-size: 0.6rem; font-weight: 400;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); line-height: 1.4;
+      max-width: 130px; margin-top: 0.25rem;
+    }
+
+    /* ── Opacity control ── */
+    .controls {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 0.9rem 1.25rem;
+      z-index: 100;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .controls label {
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #666;
+    }
+    .controls input[type="range"] {
+      width: 130px; accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .controls span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem; font-weight: 500;
+      color: var(--accent); min-width: 32px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <!-- Bridge SVG — drawn by JS below -->
+    <svg id="bridge-svg" class="bridge-svg"
+      viewBox="0 0 1440 640" preserveAspectRatio="xMidYMax meet"
+      fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="bridge-group"></g>
+    </svg>
+
+    <div class="container">
+      <p class="eyebrow">Program Ops · Community · Builder</p>
+      <div class="hero-grid">
+        <div>
+          <h1>I build programs people <em>actually</em> care about.</h1>
+          <p class="body-text">Program ops and community leader with 10+ years at Google, Springboard, and beyond. I also ship iOS apps and web projects in public.</p>
+          <div class="cta-group">
+            <a href="#" class="btn-primary">View my work</a>
+            <a href="#" class="btn-text">Download resume</a>
+          </div>
+        </div>
+        <div class="stats-card">
+          <div>
+            <div class="stat-value">4.9<sup>/5</sup></div>
+            <div class="stat-label">CSAT — Google.org GenAI Accelerator launch</div>
+          </div>
+          <div>
+            <div class="stat-value">520<sup>K+</sup></div>
+            <div class="stat-label">Social followers managed across Google Developer channels</div>
+          </div>
+          <div>
+            <div class="stat-value">0→100</div>
+            <div class="stat-label">NPS lift at Springboard ML program</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label>Bridge opacity</label>
+    <input type="range" id="opacity-slider" min="2" max="22" value="8" step="1" />
+    <span id="opacity-label">8%</span>
+  </div>
+
+  <script>
+    const NS = "http://www.w3.org/2000/svg";
+    const group = document.getElementById('bridge-group');
+    const C = '#E8631A';
+
+    // ── Geometry ──────────────────────────────────
+    // ViewBox: 0 0 1440 640
+    const DECK_Y     = 540;
+    const WATER_Y    = 600;
+    const T_TOP_Y    = 90;
+    const T_BASE_Y   = 640; // bleeds off bottom
+
+    // Tower column edges
+    // Each tower: 4 vertical lines in two pairs (outer pair + inner pair)
+    // with a gap between the pairs that shows sky through it
+    const TL = { o1: 377, o2: 393, i1: 415, i2: 431 }; // left tower
+    const TR = { o1: 1009, o2: 1025, i1: 1047, i2: 1063 }; // right tower
+
+    // Cable center x for each tower
+    const LT_CX = (TL.o1 + TR.o1) / 2 - (TR.o1 - TL.i2) / 2 + (TL.i2 - TL.o1) / 2;
+    // Simpler: just use midpoint of each tower's full width
+    const LT_X = (TL.o1 + TL.i2) / 2; // ≈ 404
+    const RT_X = (TR.o1 + TR.i2) / 2; // ≈ 1036
+    const MID_X = (LT_X + RT_X) / 2;  // ≈ 720
+
+    // Cable sag: midpoint Y of main span
+    const SAG_Y    = 335;
+    // Quadratic bezier control point: y(0.5) = 0.5*T_TOP_Y + 0.5*CP_Y = SAG_Y
+    const CABLE_CP = 2 * SAG_Y - T_TOP_Y; // = 580
+
+    function mk(tag, attrs) {
+      const e = document.createElementNS(NS, tag);
+      for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+      group.appendChild(e);
+      return e;
+    }
+
+    const ln = (x1,y1,x2,y2,sw=1.5) => mk('line', { x1,y1,x2,y2, stroke:C, 'stroke-width':sw });
+    const pt = (d, sw=1.5) => mk('path', { d, stroke:C, 'stroke-width':sw, fill:'none' });
+
+    // ── Towers ────────────────────────────────────
+    function drawTower(t) {
+      // Four vertical columns
+      ln(t.o1, T_TOP_Y, t.o1, T_BASE_Y, 2);
+      ln(t.o2, T_TOP_Y, t.o2, T_BASE_Y, 2);
+      ln(t.i1, T_TOP_Y, t.i1, T_BASE_Y, 2);
+      ln(t.i2, T_TOP_Y, t.i2, T_BASE_Y, 2);
+
+      // Top cap (Art Deco finial)
+      ln(t.o1 - 6, T_TOP_Y,      t.i2 + 6, T_TOP_Y,      3);
+      ln(t.o1 - 4, T_TOP_Y + 14, t.i2 + 4, T_TOP_Y + 14, 1.5);
+      ln(t.o1 - 2, T_TOP_Y + 26, t.i2 + 2, T_TOP_Y + 26, 1);
+
+      // Horizontal struts — outer pair, gap, inner pair
+      for (let y = T_TOP_Y + 50; y < DECK_Y; y += 52) {
+        ln(t.o1, y, t.o2, y, 1);
+        ln(t.o2, y, t.i1, y, 1); // connects across the gap
+        ln(t.i1, y, t.i2, y, 1);
+      }
+
+      // X-bracing in the outer bays (between o1/o2 and i1/i2)
+      for (let y = T_TOP_Y + 50; y < DECK_Y; y += 104) {
+        const y2 = Math.min(y + 104, DECK_Y);
+        // outer bay
+        ln(t.o1, y, t.o2, y2, 0.8);
+        ln(t.o2, y, t.o1, y2, 0.8);
+        // inner bay
+        ln(t.i1, y, t.i2, y2, 0.8);
+        ln(t.i2, y, t.i1, y2, 0.8);
+      }
+
+      // Portal frame at deck
+      ln(t.o1 - 10, DECK_Y - 10, t.i2 + 10, DECK_Y - 10, 2.5);
+      ln(t.o1 - 10, DECK_Y + 10, t.i2 + 10, DECK_Y + 10, 1.5);
+
+      // Piers below deck
+      ln(t.o1 + 4,  DECK_Y + 10, t.o1 + 4,  T_BASE_Y, 2);
+      ln(t.i2 - 4,  DECK_Y + 10, t.i2 - 4,  T_BASE_Y, 2);
+    }
+
+    drawTower(TL);
+    drawTower(TR);
+
+    // ── Road deck ─────────────────────────────────
+    ln(0, DECK_Y,      1440, DECK_Y,      2.5);
+    ln(0, DECK_Y + 12, 1440, DECK_Y + 12, 1);
+
+    // Truss detail below deck edge
+    for (let x = 0; x < 1440; x += 30) {
+      ln(x,    DECK_Y + 12, x + 15, DECK_Y + 28, 0.45);
+      ln(x+15, DECK_Y + 12, x + 30, DECK_Y + 28, 0.45);
+    }
+    ln(0, DECK_Y + 28, 1440, DECK_Y + 28, 0.6);
+
+    // ── Main cables — two parallel (one per side of bridge) ──
+    [-7, 7].forEach(off => {
+      const x0 = LT_X + off;
+      const x1 = RT_X + off;
+      const mx = MID_X + off;
+
+      // Main span
+      pt(`M ${x0},${T_TOP_Y} Q ${mx},${CABLE_CP} ${x1},${T_TOP_Y}`, 2.5);
+
+      // Backstay cables to shore anchors
+      pt(`M ${x0},${T_TOP_Y} C ${x0-55},${T_TOP_Y+35} 110,215 0,248`, 2);
+      pt(`M ${x1},${T_TOP_Y} C ${x1+55},${T_TOP_Y+35} 1330,215 1440,248`, 2);
+
+      // ── Vertical hangers from main cable to deck ──
+      const STEPS = 24;
+      for (let i = 1; i < STEPS; i++) {
+        const t = i / STEPS;
+        const hx = (1-t)*(1-t)*x0 + 2*(1-t)*t*mx + t*t*x1;
+        const hy = (1-t)*(1-t)*T_TOP_Y + 2*(1-t)*t*CABLE_CP + t*t*T_TOP_Y;
+        // Skip hangers inside tower bounds
+        const inLeft  = hx > TL.o1 - 8 && hx < TL.i2 + 8;
+        const inRight = hx > TR.o1 - 8 && hx < TR.i2 + 8;
+        if (!inLeft && !inRight) {
+          ln(hx, hy, hx, DECK_Y, 0.7);
+        }
+      }
+
+      // Approach span hangers (left shore → left tower)
+      for (let x = 45; x < x0 - 30; x += 38) {
+        const ratio = (x - 0) / (x0 - 0);
+        const cabY = 248 + (T_TOP_Y - 248) * ratio;
+        ln(x, cabY, x, DECK_Y, 0.5);
+      }
+      // Approach span hangers (right tower → right shore)
+      for (let x = x1 + 30; x < 1395; x += 38) {
+        const ratio = (x - x1) / (1440 - x1);
+        const cabY = T_TOP_Y + (248 - T_TOP_Y) * ratio;
+        ln(x, cabY, x, DECK_Y, 0.5);
+      }
+    });
+
+    // ── Water ─────────────────────────────────────
+    ln(0, WATER_Y,      1440, WATER_Y,      1);
+    ln(0, WATER_Y + 10, 1440, WATER_Y + 10, 0.5);
+
+    // ── Opacity slider ────────────────────────────
+    const slider = document.getElementById('opacity-slider');
+    const opLabel = document.getElementById('opacity-label');
+
+    function applyOpacity(v) {
+      group.setAttribute('opacity', v / 100);
+      opLabel.textContent = v + '%';
+    }
+
+    applyOpacity(slider.value);
+    slider.addEventListener('input', e => applyOpacity(+e.target.value));
+  </script>
+</body>
+</html>

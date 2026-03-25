@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero — Noise Texture Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F5F2ED; --ink: #111110; --muted: #7a7570;
+      --accent: #E8631A; --surface: #FFFFFF; --border: rgba(15,15,15,0.08);
+      --noise-opacity: 0.04;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: #111; }
+
+    .hero {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 0 5rem;
+      min-height: 620px;
+    }
+
+    /* Noise layer — populated by JS canvas */
+    #noise-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      opacity: var(--noise-opacity);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 1.05; letter-spacing: -0.02em;
+      color: var(--ink); margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+
+    .body-text {
+      font-size: 0.9rem; font-weight: 300;
+      line-height: 1.75; color: var(--muted);
+      max-width: 480px; margin-bottom: 2rem;
+    }
+
+    .cta-group { display: flex; align-items: center; gap: 1.5rem; }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff; background: var(--accent);
+      border-radius: 2px; padding: 0.72rem 1.5rem;
+      text-decoration: none;
+    }
+
+    .btn-text {
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .stats-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 4px; padding: 1.75rem;
+      min-width: 215px;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+
+    .stat-value {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2.2rem; line-height: 1; color: var(--ink);
+    }
+    .stat-value sup { font-size: 1.2rem; color: var(--muted); }
+
+    .stat-label {
+      font-size: 0.6rem; font-weight: 400;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); line-height: 1.4;
+      max-width: 130px; margin-top: 0.25rem;
+    }
+
+    /* Controls */
+    .controls {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 0.9rem 1.25rem;
+      z-index: 100;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+
+    .control-row { display: flex; align-items: center; gap: 0.75rem; }
+
+    .controls label {
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #666; width: 80px;
+    }
+
+    .controls input[type="range"] {
+      width: 130px; accent-color: var(--accent); cursor: pointer;
+    }
+
+    .controls span {
+      font-size: 0.72rem; font-weight: 500;
+      color: var(--accent); min-width: 36px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div id="noise-layer"></div>
+    <div class="container">
+      <p class="eyebrow">Program Ops · Community · Builder</p>
+      <div class="hero-grid">
+        <div>
+          <h1>I build programs people <em>actually</em> care about.</h1>
+          <p class="body-text">Program ops and community leader with 10+ years at Google, Springboard, and beyond. I also ship iOS apps and web projects in public.</p>
+          <div class="cta-group">
+            <a href="#" class="btn-primary">View my work</a>
+            <a href="#" class="btn-text">Download resume</a>
+          </div>
+        </div>
+        <div class="stats-card">
+          <div>
+            <div class="stat-value">4.9<sup>/5</sup></div>
+            <div class="stat-label">CSAT — Google.org GenAI Accelerator launch</div>
+          </div>
+          <div>
+            <div class="stat-value">520<sup>K+</sup></div>
+            <div class="stat-label">Social followers managed across Google Developer channels</div>
+          </div>
+          <div>
+            <div class="stat-value">0→100</div>
+            <div class="stat-label">NPS lift at Springboard ML program</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="control-row">
+      <label>Noise</label>
+      <input type="range" id="noise-slider" min="0" max="12" value="4" step="1" />
+      <span id="noise-label">4%</span>
+    </div>
+  </div>
+
+  <script>
+    // Generate noise on a canvas and use as repeating background
+    var SIZE = 200;
+    var canvas = document.createElement('canvas');
+    canvas.width = SIZE; canvas.height = SIZE;
+    var ctx = canvas.getContext('2d');
+    var img = ctx.createImageData(SIZE, SIZE);
+    for (var i = 0; i < img.data.length; i += 4) {
+      var v = Math.floor(Math.random() * 255);
+      img.data[i] = v; img.data[i+1] = v; img.data[i+2] = v; img.data[i+3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+    var noiseLayer = document.getElementById('noise-layer');
+    noiseLayer.style.backgroundImage = 'url(' + canvas.toDataURL() + ')';
+
+    var noiseSlider = document.getElementById('noise-slider');
+    var noiseLabel  = document.getElementById('noise-label');
+    var hero = document.querySelector('.hero');
+
+    function applyNoise(v) {
+      hero.style.setProperty('--noise-opacity', v / 100);
+      noiseLabel.textContent = v + '%';
+    }
+
+    applyNoise(noiseSlider.value);
+    noiseSlider.addEventListener('input', function(e) { applyNoise(+e.target.value); });
+  </script>
+</body>
+</html>
