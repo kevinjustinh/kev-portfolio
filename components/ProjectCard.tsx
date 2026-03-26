@@ -44,8 +44,9 @@ export default function ProjectCard({
               overflow: "hidden",
               ...(project.screenshots?.[0] ? {
                 backgroundImage: `url(${project.screenshots[0]})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center top",
+                backgroundSize: "contain",
+                backgroundPosition: "center center",
+                backgroundRepeat: "no-repeat",
               } : {}),
             }}
           >
@@ -151,8 +152,9 @@ export default function ProjectCard({
               overflow: "hidden",
               ...(project.screenshots?.[0] ? {
                 backgroundImage: `url(${project.screenshots[0]})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center top",
+                backgroundSize: "contain",
+                backgroundPosition: "center center",
+                backgroundRepeat: "no-repeat",
               } : {}),
               padding: "1rem 1.5rem",
             }}
@@ -256,14 +258,14 @@ export default function ProjectCard({
           position: "relative",
           overflow: "hidden",
           flexShrink: 0,
-          backgroundColor: "#1A1916",
+          backgroundColor: project.accentColor ?? "#1A1916",
         }}
       >
         {project.screenshots?.[0] ? (
           <img
             src={project.screenshots[0]}
             alt={`${project.name} screenshot`}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />
         ) : (
           project.accentColor && (
