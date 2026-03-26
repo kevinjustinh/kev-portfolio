@@ -131,7 +131,7 @@ export default function Projects({ projects }: ProjectsProps) {
           className="text-section-title"
           style={{ color: "#F5F2ED", marginBottom: "0.75rem" }}
         >
-          <em className="italic">Apps</em>{" "}&amp; Projects
+          <em className="italic">Vibe Coded</em>{" "}Apps &amp; Projects
         </h2>
         <p
           style={{
