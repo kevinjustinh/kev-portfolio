@@ -42,6 +42,16 @@ export const projects: Project[] = [
     stack: "Next.js 14 · Mapbox · GSAP · Vercel",
     url: "https://sf-trip-2026.vercel.app",
     accentColor: "#F04A00", // sf-trip brand orange exact
+    screenshots: [
+      "/screenshots/sf-site/1-sf-site-hero.webp",
+      "/screenshots/sf-site/2-sf-site-video-animation.webp",
+      "/screenshots/sf-site/3-sf-site-saturday.webp",
+      "/screenshots/sf-site/4-sf-site-sunday.webp",
+      "/screenshots/sf-site/5-sf-site-monday.webp",
+      "/screenshots/sf-site/6-sf-site-map.webp",
+      "/screenshots/sf-site/7-sf-site-what-to-expect.webp",
+      "/screenshots/sf-site/8-sf-site-resources.webp",
+    ],
   },
   {
     name: "Carro",
