@@ -214,15 +214,17 @@ export default function ProjectOverlay({
             }}
           >
             {/* Main shot */}
-            <div style={{ flex: 1, position: "relative", padding: project.screenshotPadding?.[activeShot] ?? "6%" }}>
+            <div style={{ flex: 1, position: "relative" }}>
               {hasShots ? (
-                <Image
-                  src={shots[activeShot]}
-                  alt={`${project.name} screenshot ${activeShot + 1}`}
-                  fill
-                  style={{ objectFit: "contain" }}
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                />
+                <div style={{ position: "absolute", inset: project.screenshotPadding?.[activeShot] ?? "6%" }}>
+                  <Image
+                    src={shots[activeShot]}
+                    alt={`${project.name} screenshot ${activeShot + 1}`}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    sizes="(max-width: 768px) 100vw, 58vw"
+                  />
+                </div>
               ) : (
                 <div
                   style={{
@@ -469,17 +471,18 @@ export default function ProjectOverlay({
               background: project.accentColor ?? "#111",
               minHeight: "220px",
               position: "relative",
-              padding: project.screenshotPadding?.[activeShot] ?? undefined,
             }}
           >
             {hasShots ? (
-              <Image
-                src={shots[activeShot]}
-                alt={`${project.name} screenshot ${activeShot + 1}`}
-                fill
-                style={{ objectFit: "contain" }}
-                sizes="100vw"
-              />
+              <div style={{ position: "absolute", inset: project.screenshotPadding?.[activeShot] ?? 0 }}>
+                <Image
+                  src={shots[activeShot]}
+                  alt={`${project.name} screenshot ${activeShot + 1}`}
+                  fill
+                  style={{ objectFit: "contain" }}
+                  sizes="100vw"
+                />
+              </div>
             ) : (
               <div
                 style={{
