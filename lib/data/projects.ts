@@ -21,7 +21,17 @@ export const projects: Project[] = [
     stack: "Swift · SwiftData · Claude AI",
     featured: true,
     accentColor: "#BF4341", // Stoke colorAccent exact
-    screenshots: ["/screenshots/stoke-home.png"],
+    screenshots: [
+      "/screenshots/stoke/1 - Stoke Home.webp",
+      "/screenshots/stoke/2 - Stoke Select Cut.webp",
+      "/screenshots/stoke/3 - Stoke Select Your Grill.webp",
+      "/screenshots/stoke/4 - Stoke Select Your Wood.png.webp",
+      "/screenshots/stoke/5 - Stoke Active Cook.webp",
+      "/screenshots/stoke/6 - Stoke Reference Screen.webp",
+      "/screenshots/stoke/7 - Stoke Brisket Instructions.webp",
+      "/screenshots/stoke/8 - Stoke Chatbot.webp",
+      "/screenshots/stoke/9 - Stoke Cook Log.webp",
+    ],
   },
   {
     name: "SF Weekend",
