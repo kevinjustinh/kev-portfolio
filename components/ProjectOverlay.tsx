@@ -214,7 +214,7 @@ export default function ProjectOverlay({
             }}
           >
             {/* Main shot */}
-            <div style={{ flex: 1, position: "relative", padding: "6%" }}>
+            <div style={{ flex: 1, position: "relative", padding: project.screenshotPadding?.[activeShot] ?? "6%" }}>
               {hasShots ? (
                 <Image
                   src={shots[activeShot]}
@@ -469,6 +469,7 @@ export default function ProjectOverlay({
               background: project.accentColor ?? "#111",
               minHeight: "220px",
               position: "relative",
+              padding: project.screenshotPadding?.[activeShot] ?? undefined,
             }}
           >
             {hasShots ? (

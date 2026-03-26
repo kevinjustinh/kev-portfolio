@@ -9,6 +9,7 @@ export type Project = {
   featured?: boolean;
   accentColor?: string;
   screenshots?: string[]; // paths relative to /public, e.g. ["/screenshots/stoke-1.png"]
+  screenshotPadding?: string[]; // per-screenshot padding override, e.g. ["12%", undefined, "12%"]
 };
 
 export const projects: Project[] = [
@@ -101,6 +102,7 @@ export const projects: Project[] = [
       "/screenshots/catchr/3-catchr-success.webp",
       "/screenshots/catchr/4-catchr-sheets.webp",
     ],
+    screenshotPadding: ["12%", undefined, "12%", "12%"],
   },
   {
     name: "Tended",
