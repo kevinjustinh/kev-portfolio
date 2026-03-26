@@ -22,15 +22,15 @@ export const projects: Project[] = [
     featured: true,
     accentColor: "#BF4341", // Stoke colorAccent exact
     screenshots: [
-      "/screenshots/stoke/1-stoke-home.webp",
-      "/screenshots/stoke/2-stoke-select-cut.webp",
-      "/screenshots/stoke/3-stoke-select-your-grill.webp",
-      "/screenshots/stoke/4-stoke-select-your-wood.webp",
-      "/screenshots/stoke/5-stoke-active-cook.webp",
-      "/screenshots/stoke/6-stoke-reference-screen.webp",
-      "/screenshots/stoke/7-stoke-brisket-instructions.webp",
-      "/screenshots/stoke/8-stoke-chatbot.webp",
-      "/screenshots/stoke/9-stoke-cook-log.webp",
+      "/screenshots/Stoke/1-stoke-home.webp",
+      "/screenshots/Stoke/2-stoke-select-cut.webp",
+      "/screenshots/Stoke/3-stoke-select-your-grill.webp",
+      "/screenshots/Stoke/4-stoke-select-your-wood.webp",
+      "/screenshots/Stoke/5-stoke-active-cook.webp",
+      "/screenshots/Stoke/6-stoke-reference-screen.webp",
+      "/screenshots/Stoke/7-stoke-brisket-instructions.webp",
+      "/screenshots/Stoke/8-stoke-chatbot.webp",
+      "/screenshots/Stoke/9-stoke-cook-log.webp",
     ],
   },
   {
@@ -51,6 +51,14 @@ export const projects: Project[] = [
       "Car maintenance tracker with NHTSA and CarAPI integration for real vehicle data and service history.",
     stack: "Swift · SwiftData · NHTSA API",
     accentColor: "#6D28D9", // Carro Theme.swift light mode primary exact
+    screenshots: [
+      "/screenshots/Carro/1-carro-home.webp",
+      "/screenshots/Carro/2-carro-home-overdue.webp",
+      "/screenshots/Carro/3-carro-my-cars.webp",
+      "/screenshots/Carro/4-carro-log-service.webp",
+      "/screenshots/Carro/5-carro-service-record.webp",
+      "/screenshots/Carro/6-carro-add-reminder.webp",
+    ],
   },
   {
     name: "Tended",
