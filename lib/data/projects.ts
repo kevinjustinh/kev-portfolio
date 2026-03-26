@@ -51,6 +51,7 @@ export const projects: Project[] = [
       "Car maintenance tracker with NHTSA and CarAPI integration for real vehicle data and service history.",
     stack: "Swift · SwiftData · NHTSA API",
     accentColor: "#6D28D9", // Carro Theme.swift light mode primary exact
+    screenshots: ["/screenshots/iphone-mockup-test.webp"],
   },
   {
     name: "Tended",
