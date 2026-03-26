@@ -81,7 +81,7 @@ export const projects: Project[] = [
     accentColor: "#7A9E7E", // Tended sage green primary exact
   },
   {
-    name: "330 Fantasy",
+    name: "Fantasy Football League Site",
     tag: "Website · Next.js",
     category: "web",
     description:
