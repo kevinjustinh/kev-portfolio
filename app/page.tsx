@@ -1,7 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import StatusBar from "@/components/StatusBar";
-import Marquee from "@/components/Marquee";
 import About from "@/components/About";
 import CaseStudies from "@/components/CaseStudies";
 import Projects from "@/components/Projects";
@@ -22,12 +21,7 @@ export default function Home() {
           <StatusBar />
         </div>
         <About bio={bio} experience={experience} />
-        <Marquee
-          items={["Program Ops · Community · Builder · San Francisco · Open to Opportunity"]}
-          speed="slow"
-          variant="atmospheric"
-        />
-        <CaseStudies studies={caseStudies} />
+<CaseStudies studies={caseStudies} />
         <Projects projects={projects} />
         <Contact />
       </main>

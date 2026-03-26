@@ -31,7 +31,7 @@ export default function ProjectCard({
         {/* Desktop: 2-col — accent block left, content right */}
         <div
           className="hidden md:grid"
-          style={{ gridTemplateColumns: "2fr 3fr" }}
+          style={{ gridTemplateColumns: "2fr 3fr", background: "#222220" }}
         >
           <div
             style={{
@@ -64,8 +64,8 @@ export default function ProjectCard({
             <span
               className="text-label"
               style={{
-                color: "var(--color-ink)",
-                border: "0.5px solid var(--color-border)",
+                color: "#8A8580",
+                border: "0.5px solid rgba(245,242,237,0.08)",
                 borderRadius: "2px",
                 padding: "0.2rem 0.5rem",
                 display: "inline-block",
@@ -80,7 +80,7 @@ export default function ProjectCard({
               style={{
                 fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)",
                 lineHeight: 1.1,
-                color: "var(--color-ink)",
+                color: "#F5F2ED",
                 marginBottom: "0.75rem",
               }}
             >
@@ -91,7 +91,7 @@ export default function ProjectCard({
                 fontSize: "0.88rem",
                 fontWeight: 300,
                 lineHeight: 1.7,
-                color: "var(--color-muted)",
+                color: "#C8C4BE",
                 flex: 1,
               }}
             >
@@ -102,7 +102,7 @@ export default function ProjectCard({
                 fontSize: "0.65rem",
                 fontWeight: 400,
                 letterSpacing: "0.08em",
-                color: "var(--color-muted)",
+                color: "#8A8580",
                 marginTop: "1rem",
               }}
             >
@@ -111,7 +111,7 @@ export default function ProjectCard({
             <div
               className="flex items-center justify-between"
               style={{
-                borderTop: "0.5px solid var(--color-border)",
+                borderTop: "0.5px solid rgba(245,242,237,0.08)",
                 marginTop: "1rem",
                 paddingTop: "0.75rem",
               }}
@@ -120,12 +120,12 @@ export default function ProjectCard({
                 style={{
                   fontSize: "0.7rem",
                   fontWeight: 400,
-                  color: "var(--color-muted)",
+                  color: "#8A8580",
                 }}
               >
                 {project.tag.split(" · ")[0]}
               </span>
-              <span className="arrow" style={{ color: "var(--color-muted)" }}>
+              <span className="arrow" style={{ color: "#8A8580" }}>
                 →
               </span>
             </div>
@@ -133,7 +133,7 @@ export default function ProjectCard({
         </div>
 
         {/* Mobile: stacked — accent block on top, content below */}
-        <div className="flex flex-col md:hidden">
+        <div className="flex flex-col md:hidden" style={{ background: "#222220" }}>
           <div
             style={{
               backgroundColor: project.accentColor ?? "var(--color-muted)",
@@ -155,12 +155,12 @@ export default function ProjectCard({
               {project.tag}
             </span>
           </div>
-          <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column" }}>
+          <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", background: "#222220" }}>
             <span
               className="text-label"
               style={{
-                color: "var(--color-ink)",
-                border: "0.5px solid var(--color-border)",
+                color: "#8A8580",
+                border: "0.5px solid rgba(245,242,237,0.08)",
                 borderRadius: "2px",
                 padding: "0.2rem 0.5rem",
                 display: "inline-block",
@@ -175,7 +175,7 @@ export default function ProjectCard({
               style={{
                 fontSize: "clamp(1.4rem, 6vw, 1.8rem)",
                 lineHeight: 1.1,
-                color: "var(--color-ink)",
+                color: "#F5F2ED",
                 marginBottom: "0.75rem",
               }}
             >
@@ -186,7 +186,7 @@ export default function ProjectCard({
                 fontSize: "0.85rem",
                 fontWeight: 300,
                 lineHeight: 1.7,
-                color: "var(--color-muted)",
+                color: "#C8C4BE",
               }}
             >
               {project.description}
@@ -196,7 +196,7 @@ export default function ProjectCard({
                 fontSize: "0.65rem",
                 fontWeight: 400,
                 letterSpacing: "0.08em",
-                color: "var(--color-muted)",
+                color: "#8A8580",
                 marginTop: "1rem",
               }}
             >
@@ -205,15 +205,15 @@ export default function ProjectCard({
             <div
               className="flex items-center justify-between"
               style={{
-                borderTop: "0.5px solid var(--color-border)",
+                borderTop: "0.5px solid rgba(245,242,237,0.08)",
                 marginTop: "1rem",
                 paddingTop: "0.75rem",
               }}
             >
-              <span style={{ fontSize: "0.7rem", fontWeight: 400, color: "var(--color-muted)" }}>
+              <span style={{ fontSize: "0.7rem", fontWeight: 400, color: "#8A8580" }}>
                 {project.tag.split(" · ")[0]}
               </span>
-              <span className="arrow" style={{ color: "var(--color-muted)" }}>→</span>
+              <span className="arrow" style={{ color: "#8A8580" }}>→</span>
             </div>
           </div>
         </div>
@@ -225,72 +225,109 @@ export default function ProjectCard({
   return (
     <article
       aria-label={`Project: ${project.name}`}
-      className="card flex flex-col p-8"
+      className="card flex flex-col"
       onClick={onClick}
       style={{
-        backgroundColor: "var(--color-surface)",
+        backgroundColor: "#222220",
         cursor: onClick ? "pointer" : "default",
+        overflow: "hidden",
+        ...(project.accentColor ? { borderTop: `2.5px solid ${project.accentColor}` } : {}),
         ...(isLastOdd ? { gridColumn: "1 / -1" } : {}),
       }}
     >
-      <div>
+      {/* Image / screenshot area */}
+      <div
+        style={{
+          aspectRatio: isLastOdd ? "16/5" : "3/2",
+          position: "relative",
+          overflow: "hidden",
+          flexShrink: 0,
+          backgroundColor: "#1A1916",
+        }}
+      >
+        {project.screenshots?.[0] ? (
+          <img
+            src={project.screenshots[0]}
+            alt={`${project.name} screenshot`}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        ) : (
+          project.accentColor && (
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundColor: project.accentColor,
+                opacity: 0.15,
+              }}
+            />
+          )
+        )}
+      </div>
+
+      {/* Content */}
+      <div
+        className="flex flex-col flex-1"
+        style={{ padding: "1.25rem 1.5rem 1.5rem" }}
+      >
         <span
           className="text-label"
           style={{
-            color: "var(--color-muted)",
-            border: "0.5px solid var(--color-border)",
+            color: "#8A8580",
+            background: "rgba(245,242,237,0.07)",
             borderRadius: "2px",
             padding: "0.2rem 0.5rem",
             display: "inline-block",
+            alignSelf: "flex-start",
+            marginBottom: "0.4rem",
           }}
         >
           {project.tag}
         </span>
-      </div>
-      <h3
-        className="font-display font-normal"
-        style={{
-          fontSize: "1.25rem",
-          lineHeight: 1.15,
-          color: "var(--color-ink)",
-          margin: "0.4rem 0 0.4rem",
-        }}
-      >
-        {project.name}
-      </h3>
-      <p
-        className="flex-1"
-        style={{
-          fontSize: "0.82rem",
-          fontWeight: 300,
-          lineHeight: 1.65,
-          color: "var(--color-muted)",
-        }}
-      >
-        {project.description}
-      </p>
-      <p
-        style={{
-          fontSize: "0.65rem",
-          fontWeight: 400,
-          letterSpacing: "0.08em",
-          color: "var(--color-muted)",
-          marginTop: "0.6rem",
-        }}
-      >
-        {project.stack}
-      </p>
-      <div
-        className="flex items-center justify-end"
-        style={{
-          borderTop: "0.5px solid var(--color-border)",
-          marginTop: "1rem",
-          paddingTop: "0.75rem",
-        }}
-      >
-        <span className="arrow" style={{ color: "var(--color-muted)" }}>
-          →
-        </span>
+        <h3
+          className="font-display font-normal"
+          style={{
+            fontSize: "1.25rem",
+            lineHeight: 1.15,
+            color: "#F5F2ED",
+            margin: "0.25rem 0 0.4rem",
+          }}
+        >
+          {project.name}
+        </h3>
+        <p
+          className="flex-1"
+          style={{
+            fontSize: "0.82rem",
+            fontWeight: 300,
+            lineHeight: 1.65,
+            color: "#C8C4BE",
+          }}
+        >
+          {project.description}
+        </p>
+        <p
+          style={{
+            fontSize: "0.65rem",
+            fontWeight: 400,
+            letterSpacing: "0.08em",
+            color: "#8A8580",
+            marginTop: "0.6rem",
+          }}
+        >
+          {project.stack}
+        </p>
+        <div
+          className="flex items-center justify-end"
+          style={{
+            borderTop: "0.5px solid rgba(245,242,237,0.08)",
+            marginTop: "1rem",
+            paddingTop: "0.75rem",
+          }}
+        >
+          <span className="arrow" style={{ color: "#8A8580" }}>→</span>
+        </div>
       </div>
     </article>
   );

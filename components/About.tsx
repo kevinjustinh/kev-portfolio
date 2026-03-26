@@ -22,9 +22,33 @@ export default function About({ bio, experience }: AboutProps) {
       ref={sectionRef}
       aria-labelledby="about-heading"
       className="py-16 md:py-20 border-t"
-      style={{ borderColor: "var(--color-border)" }}
+      style={{ borderColor: "var(--color-border)", position: "relative", overflow: "hidden" }}
     >
-      <div className="container-site">
+      {/* Background photo */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "url('/about/Photo 3.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.25,
+          pointerEvents: "none",
+        }}
+      />
+      {/* Cream wash to keep text readable */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "var(--color-bg)",
+          opacity: 0.55,
+          pointerEvents: "none",
+        }}
+      />
+      <div className="container-site" style={{ position: "relative", zIndex: 1 }}>
         {/* Eyebrow */}
         <p className="text-label text-muted mb-8">About</p>
 
@@ -107,7 +131,39 @@ export default function About({ bio, experience }: AboutProps) {
             ))}
           </div>
         </div>
-      </div>
+        </div>
+      {/* Photo credit — outside container, pinned to section bottom-right */}
+      <p
+        style={{
+          position: "absolute",
+          bottom: "0.4rem",
+          right: "0.75rem",
+          fontSize: "0.6rem",
+          color: "var(--color-muted)",
+          opacity: 0.5,
+          letterSpacing: "0.04em",
+          zIndex: 1,
+        }}
+      >
+        Photo by{" "}
+        <a
+          href="https://unsplash.com/@cedricletsch?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "inherit", textDecoration: "underline" }}
+        >
+          Cedric Letsch
+        </a>{" "}
+        on{" "}
+        <a
+          href="https://unsplash.com/photos/road-pavement-photograph-glaaKI-5NEU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "inherit", textDecoration: "underline" }}
+        >
+          Unsplash
+        </a>
+      </p>
     </section>
   );
 }

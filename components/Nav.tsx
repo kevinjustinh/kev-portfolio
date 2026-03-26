@@ -2,12 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Download } from "lucide-react";
 
 const NAV_LINKS = [
-  { num: "01", label: "Work", href: "#work" },
-  { num: "02", label: "About", href: "#about" },
-  { num: "03", label: "Resume", href: "/resume.pdf", external: true, isResume: true },
-  { num: "04", label: "Contact", href: "#contact" },
+  { num: "01", label: "About", href: "#about" },
+  { num: "02", label: "Case Studies", href: "#case-studies" },
+  { num: "03", label: "Apps & Projects", href: "#projects" },
+  { num: "04", label: "Resume", href: "/resume.pdf", external: true, isResume: true },
+  { num: "05", label: "Contact", href: "#contact" },
 ];
 
 export default function Nav() {
@@ -119,17 +121,16 @@ export default function Nav() {
                   {isResume && (
                     <span
                       aria-hidden="true"
-                      className="resume-arrow"
+                      className="resume-icon"
                       style={{
-                        color: "var(--color-accent)",
-                        fontSize: "0.7rem",
-                        display: "inline-block",
-                        opacity: 0,
-                        transform: "translateX(-4px)",
-                        transition: "opacity 150ms ease, transform 150ms ease",
+                        color: "var(--color-muted)",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        opacity: 0.7,
+                        transition: "opacity 150ms ease",
                       }}
                     >
-                      ↗
+                      <Download size={11} />
                     </span>
                   )}
                 </a>
@@ -208,10 +209,9 @@ export default function Nav() {
       )}
 
       <style>{`
-        /* Resume arrow appears on hover */
-        .nav-link:hover .resume-arrow {
+        /* Resume icon brightens on hover */
+        .nav-link:hover .resume-icon {
           opacity: 1 !important;
-          transform: translateX(0) !important;
         }
 
         /* Mobile: hide desktop links, show hamburger */

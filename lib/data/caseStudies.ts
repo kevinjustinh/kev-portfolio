@@ -97,3 +97,49 @@ export const caseStudies: CaseStudy[] = [
     slug: "reccheck",
   },
 ];
+
+export type PublishedArticle = {
+  title: string;
+  publication: string;
+  date: string;
+  url: string;
+};
+
+export const publishedArticles: PublishedArticle[] = [
+  {
+    title: "Yonatan Levin, Android GDE, uses his developer superpowers to help refugees in Ukraine",
+    publication: "Google Developers Blog",
+    date: "Apr 2023",
+    url: "https://developers.googleblog.com/yonatan-levin-android-gde-uses-his-developer-superpowers-to-help-refugees-in-ukraine/",
+  },
+  {
+    title: "How web GDE Erick Wendel forever changed Node.js with the support of the open-source community",
+    publication: "Google Developers Blog",
+    date: "May 2023",
+    url: "https://developers.googleblog.com/how-web-gde-erick-wendel-forever-changed-nodejs-with-the-support-of-the-open-source-community/",
+  },
+  {
+    title: "How Machine Learning GDE Henry Ruiz is inspired by resilience in his community",
+    publication: "Google Developers Blog",
+    date: "Oct 2023",
+    url: "https://developers.googleblog.com/how-machine-learning-gde-henry-ruiz-is-inspired-by-resilience-in-his-community/",
+  },
+  {
+    title: "Cybersecurity Awareness Month: Web GDE Shrutirupa Banerjiee shares how we can stay safe in a world of cyber attacks",
+    publication: "Google Developers Blog",
+    date: "Oct 2023",
+    url: "https://developers.googleblog.com/cybersecurity-awareness-month-web-gde-shrutirupa-banerjiee-shares-how-we-can-stay-safe-in-a-world-of-cyber-attacks/",
+  },
+  {
+    title: "AAPI Heritage Month: How Web GDE Vickie Li views the importance of diversity",
+    publication: "Google Developers Blog",
+    date: "May 2023",
+    url: "https://developers.googleblog.com/aapi-heritage-month-how-web-gde-vickie-li-views-the-importance-of-diversity/",
+  },
+  {
+    title: "How Web GDE Martine Dowden approaches web design from an accessibility perspective",
+    publication: "Google Developers Blog",
+    date: "May 2023",
+    url: "https://developers.googleblog.com/how-web-gde-martine-dowden-approaches-web-design-from-an-accessibility-perspective/",
+  },
+];

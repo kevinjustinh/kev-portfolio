@@ -18,13 +18,12 @@ export interface ProjectsProps {
   projects: Project[];
 }
 
-type FilterTab = "all" | "ios" | "web" | "ops";
+type FilterTab = "all" | "ios" | "web";
 
 const TABS: { label: string; value: FilterTab }[] = [
   { label: "All", value: "all" },
   { label: "iOS Apps", value: "ios" },
   { label: "Web", value: "web" },
-  { label: "Programs & Ops", value: "ops" },
 ];
 
 export default function Projects({ projects }: ProjectsProps) {
@@ -100,17 +99,50 @@ export default function Projects({ projects }: ProjectsProps) {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="py-16 md:py-20 border-t"
-      style={{ borderColor: "var(--color-border)" }}
+      className="py-16 md:py-20"
+      style={{ background: "#1A1916", position: "relative", overflow: "hidden" }}
     >
-      <div className="container-site">
-        <p className="text-label text-accent mb-6">Selected work</p>
+      {/* Dot grid background */}
+      <svg
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          opacity: 0.08,
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern id="dot-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+            <circle cx="12" cy="12" r="1" fill="white" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dot-grid)" />
+      </svg>
+
+      <div className="container-site" style={{ position: "relative", zIndex: 1 }}>
+        <p className="text-label text-accent mb-6">Side projects</p>
         <h2
           id="projects-heading"
-          className="text-section-title text-ink mb-10 md:mb-12"
+          className="text-section-title"
+          style={{ color: "#F5F2ED", marginBottom: "0.75rem" }}
         >
           <em className="italic">Apps</em>{" "}&amp; Projects
         </h2>
+        <p
+          style={{
+            fontSize: "0.9rem",
+            fontWeight: 300,
+            color: "#8A8580",
+            marginBottom: "2.5rem",
+          }}
+        >
+          Personal builds and weekend experiments
+        </p>
 
         {/* Featured card — always visible, not filtered */}
         {featured && (
@@ -129,7 +161,7 @@ export default function Projects({ projects }: ProjectsProps) {
           aria-label="Project filter"
           className="flex"
           style={{
-            borderBottom: "0.5px solid var(--color-border)",
+            borderBottom: "0.5px solid rgba(245,242,237,0.08)",
             marginTop: "3rem",
             marginBottom: "3rem",
           }}
@@ -148,8 +180,8 @@ export default function Projects({ projects }: ProjectsProps) {
                 textTransform: "uppercase",
                 color:
                   activeTab === tab.value
-                    ? "var(--color-ink)"
-                    : "var(--color-muted)",
+                    ? "#F5F2ED"
+                    : "#8A8580",
                 background: "none",
                 border: "none",
                 padding: "0.6rem 1.25rem 0.65rem",
@@ -169,7 +201,7 @@ export default function Projects({ projects }: ProjectsProps) {
                     left: tab.value === "all" ? 0 : undefined,
                     right: 0,
                     height: "1.5px",
-                    backgroundColor: "var(--color-ink)",
+                    backgroundColor: "var(--color-accent)",
                     display: "block",
                   }}
                 />

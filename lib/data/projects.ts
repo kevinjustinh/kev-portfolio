@@ -20,7 +20,7 @@ export const projects: Project[] = [
       "AI-powered BBQ and smoking companion — tracks cooks, answers pitmaster questions, and learns your setup.",
     stack: "Swift · SwiftData · Claude AI",
     featured: true,
-    accentColor: "#BF4342",
+    accentColor: "#BF4341", // Stoke colorAccent exact
   },
   {
     name: "SF Weekend",
@@ -30,6 +30,7 @@ export const projects: Project[] = [
       "Cinematic editorial travel itinerary for a San Francisco weekend with scroll-driven animations and Mapbox integration.",
     stack: "Next.js 14 · Mapbox · GSAP · Vercel",
     url: "https://sf-trip-2026.vercel.app",
+    accentColor: "#F04A00", // sf-trip brand orange exact
   },
   {
     name: "Carro",
@@ -38,7 +39,7 @@ export const projects: Project[] = [
     description:
       "Car maintenance tracker with NHTSA and CarAPI integration for real vehicle data and service history.",
     stack: "Swift · SwiftData · NHTSA API",
-    accentColor: "#7C3AED",
+    accentColor: "#6D28D9", // Carro Theme.swift light mode primary exact
   },
   {
     name: "Tended",
@@ -48,7 +49,7 @@ export const projects: Project[] = [
       "Pet care companion app with warm earthy design system and care schedule tracking.",
     stack: "Swift · SwiftData",
     github: "https://github.com/kevinjustinh/tended",
-    accentColor: "#8B6914",
+    accentColor: "#7A9E7E", // Tended sage green primary exact
   },
   {
     name: "330 Fantasy",
@@ -57,7 +58,7 @@ export const projects: Project[] = [
     description:
       "Fantasy football league site with cinematic dark aesthetic and neon purple/blue palette.",
     stack: "Next.js · Tailwind · Vercel",
-    accentColor: "#7C3AED",
+    accentColor: "#6834D4", // 330 Fantasy purple primary exact
   },
   {
     name: "Catchr",
@@ -66,6 +67,6 @@ export const projects: Project[] = [
     description:
       "Chrome extension that scrapes and logs job listings directly to Google Sheets — built during the job search.",
     stack: "Manifest V3 · Google Sheets API",
-    accentColor: "#1D9E75",
+    accentColor: "#2C5F4A", // Catchr header green exact
   },
 ];
