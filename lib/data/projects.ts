@@ -9,7 +9,7 @@ export type Project = {
   featured?: boolean;
   accentColor?: string;
   screenshots?: string[]; // paths relative to /public, e.g. ["/screenshots/stoke-1.png"]
-  screenshotPadding?: string[]; // per-screenshot padding override, e.g. ["12%", undefined, "12%"]
+  screenshotPadding?: (string | undefined)[]; // per-screenshot padding override, e.g. ["12%", undefined, "12%"]
 };
 
 export const projects: Project[] = [
