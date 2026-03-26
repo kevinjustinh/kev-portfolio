@@ -40,6 +40,13 @@ export default function ProjectCard({
               display: "flex",
               alignItems: "flex-end",
               padding: "1.5rem",
+              position: "relative",
+              overflow: "hidden",
+              ...(project.screenshots?.[0] ? {
+                backgroundImage: `url(${project.screenshots[0]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center top",
+              } : {}),
             }}
           >
             <span
@@ -140,6 +147,13 @@ export default function ProjectCard({
               height: "120px",
               display: "flex",
               alignItems: "flex-end",
+              position: "relative",
+              overflow: "hidden",
+              ...(project.screenshots?.[0] ? {
+                backgroundImage: `url(${project.screenshots[0]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center top",
+              } : {}),
               padding: "1rem 1.5rem",
             }}
           >
