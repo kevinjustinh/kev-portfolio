@@ -82,7 +82,7 @@ export const projects: Project[] = [
   },
   {
     name: "330 Fantasy",
-    tag: "Web · Next.js",
+    tag: "Website · Next.js",
     category: "web",
     description:
       "Fantasy football league site with cinematic dark aesthetic and neon purple/blue palette.",
