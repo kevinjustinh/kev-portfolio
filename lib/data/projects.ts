@@ -41,7 +41,6 @@ export const projects: Project[] = [
     description:
       "Cinematic editorial travel itinerary for a San Francisco weekend with scroll-driven animations and Mapbox integration.",
     stack: "Next.js 14 · Mapbox · GSAP · Vercel",
-    url: "https://sf-trip-2026.vercel.app",
     accentColor: "#F04A00", // sf-trip brand orange exact
     screenshots: [
       "/screenshots/sf-site/1-sf-site-hero.webp",
