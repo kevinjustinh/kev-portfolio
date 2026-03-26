@@ -88,6 +88,14 @@ export const projects: Project[] = [
       "Fantasy football league site with cinematic dark aesthetic and neon purple/blue palette.",
     stack: "Next.js · Tailwind · Vercel",
     accentColor: "#6834D4", // 330 Fantasy purple primary exact
+    screenshots: [
+      "/screenshots/fantasy-football-league-site/1-ff-site-hero.webp",
+      "/screenshots/fantasy-football-league-site/2-ff-site-countdown.webp",
+      "/screenshots/fantasy-football-league-site/3-ff-site-stats.webp",
+      "/screenshots/fantasy-football-league-site/4-ff-site-standings.webp",
+      "/screenshots/fantasy-football-league-site/5-ff-site-schedule.webp",
+      "/screenshots/fantasy-football-league-site/6-ff-site-contact.webp",
+    ],
   },
   {
     name: "Catchr",
