@@ -52,12 +52,12 @@ export const projects: Project[] = [
     stack: "Swift · SwiftData · NHTSA API",
     accentColor: "#6D28D9", // Carro Theme.swift light mode primary exact
     screenshots: [
-      "/screenshots/Carro/1-carro-home.webp",
-      "/screenshots/Carro/2-carro-home-overdue.webp",
-      "/screenshots/Carro/3-carro-my-cars.webp",
-      "/screenshots/Carro/4-carro-log-service.webp",
-      "/screenshots/Carro/5-carro-service-record.webp",
-      "/screenshots/Carro/6-carro-add-reminder.webp",
+      "/screenshots/carro/1-carro-home.webp",
+      "/screenshots/carro/2-carro-home-overdue.webp",
+      "/screenshots/carro/3-carro-my-cars.webp",
+      "/screenshots/carro/4-carro-log-service.webp",
+      "/screenshots/carro/5-carro-service-record.webp",
+      "/screenshots/carro/6-carro-add-reminder.webp",
     ],
   },
   {
