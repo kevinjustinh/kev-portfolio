@@ -44,7 +44,7 @@ export default function ProjectCard({
               overflow: "hidden",
               ...(project.screenshots?.[0] ? {
                 backgroundImage: `url(${project.screenshots[0]})`,
-                backgroundSize: "75%",
+                backgroundSize: "contain",
                 backgroundPosition: "center center",
                 backgroundRepeat: "no-repeat",
               } : {}),
@@ -152,7 +152,7 @@ export default function ProjectCard({
               overflow: "hidden",
               ...(project.screenshots?.[0] ? {
                 backgroundImage: `url(${project.screenshots[0]})`,
-                backgroundSize: "75%",
+                backgroundSize: "contain",
                 backgroundPosition: "center center",
                 backgroundRepeat: "no-repeat",
               } : {}),
@@ -265,7 +265,7 @@ export default function ProjectCard({
           <img
             src={project.screenshots[0]}
             alt={`${project.name} screenshot`}
-            style={{ width: "75%", height: "75%", objectFit: "contain", margin: "auto", display: "block", position: "absolute", inset: 0 }}
+            style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />
         ) : (
           project.accentColor && (

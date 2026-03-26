@@ -202,7 +202,7 @@ export default function ProjectOverlay({
           {/* Left: image side */}
           <div
             style={{
-              background: "#111",
+              background: project.accentColor ?? "#111",
               display: "flex",
               flexDirection: "column",
               minHeight: "480px",
@@ -215,7 +215,7 @@ export default function ProjectOverlay({
                   src={shots[activeShot]}
                   alt={`${project.name} screenshot ${activeShot + 1}`}
                   fill
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                   sizes="(max-width: 768px) 100vw, 58vw"
                 />
               ) : (
@@ -471,7 +471,7 @@ export default function ProjectOverlay({
                 src={shots[activeShot]}
                 alt={`${project.name} screenshot ${activeShot + 1}`}
                 fill
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "contain" }}
                 sizes="100vw"
               />
             ) : (
