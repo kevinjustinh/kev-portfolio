@@ -218,7 +218,7 @@ export default function Hero({ stats }: HeroProps) {
               style={{ display: "flex", alignItems: "center", gap: "2rem" }}
             >
               <a
-                href="#work"
+                href="#case-studies"
                 style={{
                   display: "inline-block",
                   fontFamily: "var(--font-body), system-ui, sans-serif",
