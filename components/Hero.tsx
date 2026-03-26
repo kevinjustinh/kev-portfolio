@@ -31,7 +31,7 @@ export default function Hero({ stats }: HeroProps) {
     function mk<K extends keyof SVGElementTagNameMap>(tag: K, attrs: Record<string, string | number>): SVGElementTagNameMap[K] {
       const e = document.createElementNS(NS, tag) as SVGElementTagNameMap[K];
       for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, String(v));
-      g.appendChild(e);
+      g!.appendChild(e);
       return e;
     }
 
