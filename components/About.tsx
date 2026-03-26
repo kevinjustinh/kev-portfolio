@@ -30,7 +30,7 @@ export default function About({ bio, experience }: AboutProps) {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "url('/about/Photo 3.jpg')",
+          backgroundImage: "url('/About/Photo 3.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.25,
