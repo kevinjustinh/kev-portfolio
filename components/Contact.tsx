@@ -132,7 +132,7 @@ export default function Contact() {
               }}
             >
               <a
-                href="https://linkedin.com/in/kevinjhernandez"
+                href="https://www.linkedin.com/in/kevinjustin/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-label text-muted"
@@ -145,7 +145,7 @@ export default function Contact() {
               </a>
               <span style={{ color: "var(--color-border)" }}>·</span>
               <a
-                href="https://github.com/kevinjhernandez"
+                href="https://github.com/kevinjustinh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-label text-muted"
