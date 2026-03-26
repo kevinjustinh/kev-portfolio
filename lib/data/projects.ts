@@ -102,7 +102,7 @@ export const projects: Project[] = [
       "/screenshots/catchr/3-catchr-success.webp",
       "/screenshots/catchr/4-catchr-sheets.webp",
     ],
-    screenshotPadding: ["12%", undefined, "12%", "12%"],
+    screenshotPadding: ["0%", undefined, "0%", "0%"],
   },
   {
     name: "Tended",
