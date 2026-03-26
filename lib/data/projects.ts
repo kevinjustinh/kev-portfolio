@@ -21,6 +21,7 @@ export const projects: Project[] = [
     stack: "Swift · SwiftData · Claude AI",
     featured: true,
     accentColor: "#BF4341", // Stoke colorAccent exact
+    screenshots: ["/screenshots/stoke-home.png"],
   },
   {
     name: "SF Weekend",
