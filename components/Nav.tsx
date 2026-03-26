@@ -7,7 +7,7 @@ import { Download } from "lucide-react";
 const NAV_LINKS = [
   { num: "01", label: "About", href: "#about" },
   { num: "02", label: "Case Studies", href: "#case-studies" },
-  { num: "03", label: "Apps & Projects", href: "#projects" },
+  { num: "03", label: "Vibe Coded Apps & Projects", href: "#projects" },
   { num: "04", label: "Resume", href: "/resume.pdf", external: true, isResume: true },
   { num: "05", label: "Contact", href: "#contact" },
 ];
