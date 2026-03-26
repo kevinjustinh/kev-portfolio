@@ -104,6 +104,7 @@ export const projects: Project[] = [
       "Pet care companion app with warm earthy design system and care schedule tracking.",
     stack: "Swift · SwiftData",
     github: "https://github.com/kevinjustinh/tended",
+    featured: true,
     accentColor: "#7A9E7E", // Tended sage green primary exact
   },
 ];

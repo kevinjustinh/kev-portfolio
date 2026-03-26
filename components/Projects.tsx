@@ -30,7 +30,7 @@ export default function Projects({ projects }: ProjectsProps) {
   const [activeTab, setActiveTab] = useState<FilterTab>("all");
   const [overlayProject, setOverlayProject] = useState<Project | null>(null);
 
-  const featured = projects.find((p) => p.featured);
+  const featuredProjects = projects.filter((p) => p.featured);
   const gridProjects = projects.filter((p) => !p.featured);
 
   const filtered =
@@ -144,14 +144,17 @@ export default function Projects({ projects }: ProjectsProps) {
           Personal builds and weekend experiments
         </p>
 
-        {/* Featured card — always visible, not filtered */}
-        {featured && (
-          <div ref={featuredRef} style={{ marginBottom: "1.25rem" }}>
-            <ProjectCard
-              project={featured}
-              variant="featured"
-              onClick={() => setOverlayProject(featured)}
-            />
+        {/* Featured cards — always visible, not filtered */}
+        {featuredProjects.length > 0 && (
+          <div ref={featuredRef} style={{ display: "flex", flexDirection: "column", gap: "1.25rem", marginBottom: "1.25rem" }}>
+            {featuredProjects.map((p) => (
+              <ProjectCard
+                key={p.name}
+                project={p}
+                variant="featured"
+                onClick={() => setOverlayProject(p)}
+              />
+            ))}
           </div>
         )}
 
