@@ -89,7 +89,7 @@ export default function CaseStudies({ studies }: CaseStudiesProps) {
                   justifyContent: "space-between",
                   gap: "2rem",
                   padding: i === 0 ? "0 0 0.85rem" : "0.85rem 0",
-                  borderTop: i === 0 ? "none" : "0.5px solid var(--color-border)",
+                  borderTop: i === 0 ? "none" : "0.5px solid var(--color-border-vis)",
                   textDecoration: "none",
                 }}
               >

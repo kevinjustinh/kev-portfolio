@@ -103,8 +103,8 @@ export default function About({ bio, experience }: AboutProps) {
                 className="grid py-4"
                 style={{
                   gridTemplateColumns: "1fr auto",
-                  borderTop: i === 0 ? "0.5px solid var(--color-border)" : undefined,
-                  borderBottom: "0.5px solid var(--color-border)",
+                  borderTop: i === 0 ? "0.5px solid var(--color-border-vis)" : undefined,
+                  borderBottom: "0.5px solid var(--color-border-vis)",
                 }}
               >
                 <div>

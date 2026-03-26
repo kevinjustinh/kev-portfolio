@@ -317,7 +317,7 @@ const inputStyle: React.CSSProperties = {
   color: "var(--color-ink)",
   backgroundColor: "transparent",
   border: "none",
-  borderBottom: "0.5px solid var(--color-border)",
+  borderBottom: "0.5px solid var(--color-border-vis)",
   padding: "0.5rem 0",
   outline: "none",
   width: "100%",
