@@ -95,6 +95,12 @@ export const projects: Project[] = [
       "Chrome extension that scrapes and logs job listings directly to Google Sheets — built during the job search.",
     stack: "Manifest V3 · Google Sheets API",
     accentColor: "#2C5F4A", // Catchr header green exact
+    screenshots: [
+      "/screenshots/catchr/1-catchr-pop-up.webp",
+      "/screenshots/catchr/2-catchr-linkedin.webp",
+      "/screenshots/catchr/3-catchr-success.webp",
+      "/screenshots/catchr/4-catchr-sheets.webp",
+    ],
   },
   {
     name: "Tended",
