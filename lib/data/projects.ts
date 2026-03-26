@@ -106,5 +106,16 @@ export const projects: Project[] = [
     github: "https://github.com/kevinjustinh/tended",
     featured: true,
     accentColor: "#7A9E7E", // Tended sage green primary exact
+    screenshots: [
+      "/screenshots/tended/1-tended-home.webp",
+      "/screenshots/tended/2-tended-overdue.webp",
+      "/screenshots/tended/3-tended-add-task.webp",
+      "/screenshots/tended/4-tended-add-pets.webp",
+      "/screenshots/tended/5-tended-pets.webp",
+      "/screenshots/tended/6-tended-pet-profile.webp",
+      "/screenshots/tended/7-tended-packing-list.webp",
+      "/screenshots/tended/8-tended-task-list.webp",
+      "/screenshots/tended/9-tended-calendar.webp",
+    ],
   },
 ];
