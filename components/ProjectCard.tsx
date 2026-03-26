@@ -265,7 +265,7 @@ export default function ProjectCard({
           <img
             src={project.screenshots[0]}
             alt={`${project.name} screenshot`}
-            style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            style={{ width: "100%", height: "100%", objectFit: "contain", padding: "8%" }}
           />
         ) : (
           project.accentColor && (

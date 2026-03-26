@@ -22,11 +22,16 @@ export default function ProjectOverlay({
   const closeRef = useRef<HTMLButtonElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
   const closingRef = useRef(false);
+  const totalShotsRef = useRef(0);
+
+  const prevShot = useCallback(() => setActiveShot((n) => (n - 1 + totalShotsRef.current) % totalShotsRef.current), []);
+  const nextShot = useCallback(() => setActiveShot((n) => (n + 1) % totalShotsRef.current), []);
 
   // Reset active shot when project changes
   useEffect(() => {
     setActiveShot(0);
     closingRef.current = false;
+    totalShotsRef.current = project?.screenshots?.length ?? 1;
   }, [project]);
 
   // Lock body scroll when open
@@ -76,12 +81,14 @@ export default function ProjectOverlay({
     });
   }, [onClose]);
 
-  // ESC to close
+  // ESC to close, arrow keys to navigate
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") handleClose();
+      if (e.key === "ArrowRight") nextShot();
+      if (e.key === "ArrowLeft") prevShot();
     },
-    [handleClose]
+    [handleClose, nextShot, prevShot]
   );
 
   useEffect(() => {
@@ -118,8 +125,6 @@ export default function ProjectOverlay({
   const hasShots = shots.length > 0;
   const totalShots = hasShots ? shots.length : 1;
 
-  const prevShot = () => setActiveShot((n) => (n - 1 + totalShots) % totalShots);
-  const nextShot = () => setActiveShot((n) => (n + 1) % totalShots);
 
   return (
     <div
@@ -209,7 +214,7 @@ export default function ProjectOverlay({
             }}
           >
             {/* Main shot */}
-            <div style={{ flex: 1, position: "relative" }}>
+            <div style={{ flex: 1, position: "relative", padding: "6%" }}>
               {hasShots ? (
                 <Image
                   src={shots[activeShot]}
