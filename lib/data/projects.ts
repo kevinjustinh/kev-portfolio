@@ -71,16 +71,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "Tended",
-    tag: "iOS App · SwiftUI",
-    category: "ios",
-    description:
-      "Pet care companion app with warm earthy design system and care schedule tracking.",
-    stack: "Swift · SwiftData",
-    github: "https://github.com/kevinjustinh/tended",
-    accentColor: "#7A9E7E", // Tended sage green primary exact
-  },
-  {
     name: "Fantasy Football League Site",
     tag: "Website · Next.js",
     category: "web",
@@ -105,5 +95,15 @@ export const projects: Project[] = [
       "Chrome extension that scrapes and logs job listings directly to Google Sheets — built during the job search.",
     stack: "Manifest V3 · Google Sheets API",
     accentColor: "#2C5F4A", // Catchr header green exact
+  },
+  {
+    name: "Tended",
+    tag: "iOS App · SwiftUI",
+    category: "ios",
+    description:
+      "Pet care companion app with warm earthy design system and care schedule tracking.",
+    stack: "Swift · SwiftData",
+    github: "https://github.com/kevinjustinh/tended",
+    accentColor: "#7A9E7E", // Tended sage green primary exact
   },
 ];
