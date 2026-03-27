@@ -22,7 +22,7 @@ export default function Footer() {
           style={{ fontSize: "1.05rem", textDecoration: "none" }}
           aria-label="Kevin Hernandez — home"
         >
-          Kev.
+          Kevin J Hernandez
         </Link>
 
         {/* Nav links */}
