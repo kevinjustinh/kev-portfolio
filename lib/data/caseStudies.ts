@@ -144,4 +144,10 @@ export const publishedArticles: PublishedArticle[] = [
     date: "Apr 2023",
     url: "https://developers.googleblog.com/yonatan-levin-android-gde-uses-his-developer-superpowers-to-help-refugees-in-ukraine/",
   },
+  {
+    title: "From a personal notebook to 100K YouTube subscriptions: How Carlos Azaustre turned his notes into a career",
+    publication: "Google Developer Experts",
+    date: "Nov 2022",
+    url: "https://medium.com/google-developer-experts/from-a-personal-notebook-to-100k-youtube-subscriptions-how-carlos-azaustre-turned-his-notes-into-a-601db33b86c0",
+  },
 ];
