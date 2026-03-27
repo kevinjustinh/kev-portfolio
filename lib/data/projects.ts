@@ -58,7 +58,7 @@ export const projects: Project[] = [
     tag: "iOS App · SwiftUI",
     category: "ios",
     description:
-      "Car maintenance tracker with NHTSA and CarAPI integration for real vehicle data and service history.",
+      "Car maintenance tracker with NHTSA and CarAPI integration for real vehicle data and personal service history tracking.",
     stack: "Swift · SwiftData · NHTSA API",
     accentColor: "#6D28D9", // Carro Theme.swift light mode primary exact
     screenshots: [
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     tag: "Website · Next.js",
     category: "web",
     description:
-      "Fantasy football league site with cinematic dark aesthetic and neon purple/blue palette.",
+      "Fantasy football league site with standings, stats, and a cinematic dark aesthetic.",
     stack: "Next.js · Tailwind · Vercel",
     accentColor: "#6834D4", // 330 Fantasy purple primary exact
     screenshots: [
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     tag: "iOS App · SwiftUI",
     category: "ios",
     description:
-      "Pet care companion app with warm earthy design system and care schedule tracking.",
+      "Pet care companion app for tracking schedules and routines, with a warm earthy design.",
     stack: "Swift · SwiftData",
     github: "https://github.com/kevinjustinh/tended",
     featured: true,

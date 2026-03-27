@@ -125,13 +125,13 @@ export default function Projects({ projects }: ProjectsProps) {
       </svg>
 
       <div className="container-site" style={{ position: "relative", zIndex: 1 }}>
-        <p className="text-label text-accent mb-6">Side projects</p>
+        <p className="text-label text-accent mb-6">Vibe Coding</p>
         <h2
           id="projects-heading"
           className="text-section-title"
           style={{ color: "#F5F2ED", marginBottom: "0.75rem" }}
         >
-          <em className="italic">Vibe Coded</em>{" "}Apps &amp; Projects
+          <em className="italic">Apps</em>{" "}&amp; Projects
         </h2>
         <p
           style={{
@@ -141,7 +141,7 @@ export default function Projects({ projects }: ProjectsProps) {
             marginBottom: "2.5rem",
           }}
         >
-          Personal builds and weekend experiments
+          Personal builds and side projects
         </p>
 
         {/* Featured cards — always visible, not filtered */}

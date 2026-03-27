@@ -32,7 +32,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "4.9/5", label: "CSAT participant satisfaction" },
       { value: "21", label: "Nonprofits across the cohort" },
       { value: "100+", label: "Attendees at program events" },
-      { value: "XFN", label: "Cross-functional stakeholder alignment" },
+      { value: "XFN", label: "Stakeholder alignment across teams" },
     ],
     company: "Google · Google.org",
     year: "2022–2024",
@@ -45,7 +45,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Taking Springboard's ML program NPS from 0 to 100.",
     titleItalic: "0 to 100",
     description:
-      "Inherited a broken mentoring experience, identified dissatisfied mentors, and rebuilt trust through 1:1 conversations and hands-on support, delivering a 0 to 100 NPS turnaround in one month.",
+      "Inherited a broken mentoring experience, identified dissatisfied mentors, and rebuilt trust through 1:1 conversations and hands-on support — delivering a 0 to 100 NPS turnaround in one month.",
     metrics: [
       { value: "0→100", label: "NPS lift in ML program" },
       { value: "4.82/5", label: "Avg mentor rating" },
@@ -75,7 +75,7 @@ export const caseStudies: CaseStudy[] = [
       "Ran content and community strategy across Google Developer Twitter (100K) and LinkedIn (420K). Elevated GDE voices, surfaced creator stories, and published on the Google Developers Blog.",
     metrics: [
       { value: "520K+", label: "Followers managed across channels" },
-      { value: "GDB", label: "Published on Google Developers Blog" },
+      { value: "✍︎", label: "Published on Google Developers Blog" },
     ],
     company: "Google via Cognizant",
     year: "2022–2024",
@@ -87,7 +87,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Co-founding RecCheck — from idea to funded iOS app.",
     titleItalic: "funded iOS app",
     description:
-      "Built and launched an iOS app from scratch, raised $25K in early funding, and pitched competitively at Draper University. First-hand zero-to-one product ownership before it was a buzzword.",
+      "Built and launched an iOS app from scratch, raised $25K in early funding, and pitched competitively at Draper University. First-hand zero-to-one product ownership.",
     metrics: [
       { value: "$25K", label: "Early funding raised" },
       { value: "2nd", label: "Place — Draper pitch competition" },
