@@ -27,7 +27,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Launching Google.org's GenAI Accelerator from zero.",
     titleItalic: "GenAI Accelerator",
     description:
-      "Coordinated end-to-end logistics for Google.org's inaugural Generative AI Accelerator: venue, catering, hotel, and offsite for 100+ attendees. Delivered across 21 nonprofits, each with different needs and expectations.",
+      "Coordinated end-to-end program design and delivery: curriculum support, materials, and full logistics management (venue, catering, hotels, and flights) across 21 nonprofits, each with different needs and expectations.",
     metrics: [
       { value: "4.9/5", label: "CSAT participant satisfaction" },
       { value: "21", label: "Nonprofits across the cohort" },
