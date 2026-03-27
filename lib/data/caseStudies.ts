@@ -90,7 +90,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Co-founding RecCheck — from idea to funded iOS app.",
     titleItalic: "funded iOS app",
     description:
-      "Built and launched an iOS app from scratch and raised $25K in early funding. First-hand zero-to-one product ownership.",
+      "Built and launched a mobile app for organizing and discovering local pickup basketball games — from scratch to $25K in early funding. First-hand zero-to-one product ownership.",
     metrics: [
       { value: "$25K", label: "Early funding raised" },
     ],

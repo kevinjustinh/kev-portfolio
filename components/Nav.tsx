@@ -71,7 +71,7 @@ export default function Nav() {
             lineHeight: 1,
           }}
         >
-          Kev.
+          Kevin J Hernandez
         </Link>
 
         {/* Desktop links */}
@@ -95,7 +95,7 @@ export default function Nav() {
                   {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   style={{
                     fontFamily: "var(--font-body), system-ui, sans-serif",
-                    fontSize: "0.65rem",
+                    fontSize: "0.72rem",
                     fontWeight: 400,
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
@@ -170,43 +170,46 @@ export default function Nav() {
       </div>
 
       {/* Mobile menu */}
-      {menuOpen && (
-        <div
-          className="nav-mobile-menu"
-          style={{
-            backgroundColor: "var(--color-bg)",
-            borderTop: "0.5px solid var(--color-border)",
-            padding: "1.5rem 2.5rem 2rem",
-          }}
-        >
-          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-            {NAV_LINKS.map(({ num, label, href, external }) => (
-              <li key={num}>
-                <a
-                  href={href}
-                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  onClick={() => setMenuOpen(false)}
-                  style={{
-                    fontFamily: "var(--font-body), system-ui, sans-serif",
-                    fontSize: "0.75rem",
-                    fontWeight: 400,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    color: "var(--color-ink)",
-                    textDecoration: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                  }}
-                >
-                  <span style={{ color: "var(--color-muted)", fontSize: "0.6rem", fontWeight: 300 }}>{num}</span>
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div
+        className="nav-mobile-menu"
+        style={{
+          backgroundColor: "var(--color-bg)",
+          borderTop: menuOpen ? "0.5px solid var(--color-border)" : "none",
+          padding: "1.5rem 2.5rem 2rem",
+          overflow: "hidden",
+          opacity: menuOpen ? 1 : 0,
+          maxHeight: menuOpen ? "400px" : "0px",
+          transition: "opacity 180ms ease, max-height 180ms ease",
+          pointerEvents: menuOpen ? "auto" : "none",
+        }}
+      >
+        <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          {NAV_LINKS.map(({ num, label, href, external }) => (
+            <li key={num}>
+              <a
+                href={href}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  fontFamily: "var(--font-body), system-ui, sans-serif",
+                  fontSize: "0.75rem",
+                  fontWeight: 400,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--color-ink)",
+                  textDecoration: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <span style={{ color: "var(--color-muted)", fontSize: "0.6rem", fontWeight: 300 }}>{num}</span>
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <style>{`
         /* Resume icon brightens on hover */

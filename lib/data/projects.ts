@@ -19,7 +19,7 @@ export const projects: Project[] = [
     category: "ios",
     description:
       "AI-powered BBQ and smoking companion — tracks cooks, answers pitmaster questions, and learns your setup.",
-    stack: "Swift · SwiftData · Claude AI",
+    stack: "Swift · SwiftData",
     featured: true,
     accentColor: "#BF4341", // Stoke colorAccent exact
     screenshots: [

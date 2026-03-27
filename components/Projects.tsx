@@ -102,6 +102,14 @@ export default function Projects({ projects }: ProjectsProps) {
       className="py-16 md:py-20"
       style={{ background: "#1A1916", position: "relative", overflow: "hidden" }}
     >
+      <style>{`
+        .project-card-dark {
+          transition: border-color 150ms ease !important;
+        }
+        .project-card-dark:hover {
+          border-color: rgba(245,242,237,0.22) !important;
+        }
+      `}</style>
       {/* Dot grid background */}
       <svg
         aria-hidden="true"
@@ -165,8 +173,8 @@ export default function Projects({ projects }: ProjectsProps) {
           className="flex"
           style={{
             borderBottom: "0.5px solid rgba(245,242,237,0.08)",
-            marginTop: "3rem",
-            marginBottom: "3rem",
+            marginTop: "2rem",
+            marginBottom: "2rem",
           }}
         >
           {TABS.map((tab) => (

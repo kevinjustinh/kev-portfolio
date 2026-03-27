@@ -122,7 +122,7 @@ export default function CaseStudyCard({
                   <div
                     className="font-display font-normal"
                     style={{
-                      fontSize: "1.5rem",
+                      fontSize: "2rem",
                       lineHeight: 1,
                       color: "var(--color-ink)",
                     }}

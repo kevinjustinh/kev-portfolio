@@ -202,7 +202,7 @@ export default function Hero({ stats }: HeroProps) {
               style={{
                 fontFamily: "var(--font-body), system-ui, sans-serif",
                 fontSize: "0.9rem",
-                fontWeight: 300,
+                fontWeight: 400,
                 lineHeight: 1.75,
                 color: "var(--color-muted)",
                 maxWidth: "420px",
@@ -317,7 +317,7 @@ export default function Hero({ stats }: HeroProps) {
                   <div
                     style={{
                       fontFamily: "var(--font-body), system-ui, sans-serif",
-                      fontSize: "0.6rem",
+                      fontSize: "0.65rem",
                       fontWeight: 300,
                       lineHeight: 1.55,
                       color: "var(--color-muted)",

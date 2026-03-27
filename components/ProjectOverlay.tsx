@@ -647,6 +647,10 @@ export default function ProjectOverlay({
           outline: 2px solid var(--color-accent);
           outline-offset: 2px;
         }
+        [aria-label="Previous screenshot"]:hover,
+        [aria-label="Next screenshot"]:hover {
+          background: rgba(0,0,0,0.6) !important;
+        }
       `}</style>
     </div>
   );
@@ -660,13 +664,13 @@ const navArrowStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  background: "var(--color-surface)",
-  border: "0.5px solid var(--color-border)",
+  background: "rgba(0,0,0,0.35)",
+  border: "0.5px solid rgba(255,255,255,0.15)",
   borderRadius: "2px",
   cursor: "pointer",
   fontSize: "0.9rem",
-  color: "var(--color-muted)",
-  transition: "color 150ms, border-color 150ms",
+  color: "rgba(255,255,255,0.85)",
+  transition: "background 150ms",
 };
 
 const metaLabelStyle: React.CSSProperties = {

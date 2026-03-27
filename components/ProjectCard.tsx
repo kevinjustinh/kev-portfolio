@@ -243,12 +243,13 @@ export default function ProjectCard({
   return (
     <article
       aria-label={`Project: ${project.name}`}
-      className="card flex flex-col"
+      className="card flex flex-col project-card-dark"
       onClick={onClick}
       style={{
         backgroundColor: "#222220",
         cursor: onClick ? "pointer" : "default",
         overflow: "hidden",
+        border: "0.5px solid rgba(245,242,237,0.08)",
         ...(project.accentColor ? { borderTop: `2.5px solid ${project.accentColor}` } : {}),
         ...(isLastOdd ? { gridColumn: "1 / -1" } : {}),
       }}

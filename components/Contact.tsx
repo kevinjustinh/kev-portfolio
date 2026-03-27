@@ -55,6 +55,11 @@ export default function Contact() {
       style={{ borderColor: "var(--color-border)", position: "relative" }}
     >
       <style>{`
+        form input:focus,
+        form textarea:focus {
+          border-bottom-color: var(--color-accent);
+          outline: none;
+        }
         .contact-textured::before {
           content: '';
           position: absolute;
@@ -104,7 +109,7 @@ export default function Contact() {
               }}
             >
               Community management, program ops, and DevRel roles. I show up
-              curious, stay until it&apos;s done, and remember everyone&apos;s name.
+              curious, stay until it&apos;s done, and somehow people remember me too.
             </p>
 
             {/* Availability badge */}
@@ -143,7 +148,7 @@ export default function Contact() {
                 <LinkedInIcon />
                 LinkedIn
               </a>
-              <span style={{ color: "var(--color-border)" }}>·</span>
+              <span style={{ color: "var(--color-muted)", opacity: 0.4 }}>·</span>
               <a
                 href="https://github.com/kevinjustinh"
                 target="_blank"
@@ -156,7 +161,7 @@ export default function Contact() {
                 <GitHubIcon />
                 GitHub
               </a>
-              <span style={{ color: "var(--color-border)" }}>·</span>
+              <span style={{ color: "var(--color-muted)", opacity: 0.4 }}>·</span>
               <span
                 className="text-label"
                 style={{ fontWeight: 300, color: "var(--color-muted)", display: "inline-flex", alignItems: "center", gap: "0.35rem" }}
@@ -266,7 +271,7 @@ export default function Contact() {
                 backgroundColor: "var(--color-accent)",
                 border: "none",
                 borderRadius: "2px",
-                padding: "0.65rem 1.5rem",
+                padding: "0.85rem 1.75rem",
                 cursor: isPending ? "not-allowed" : "pointer",
                 opacity: isPending ? 0.6 : 1,
                 transition: "opacity 150ms ease",
@@ -317,7 +322,7 @@ const inputStyle: React.CSSProperties = {
   color: "var(--color-ink)",
   backgroundColor: "transparent",
   border: "none",
-  borderBottom: "0.5px solid var(--color-border-vis)",
+  borderBottom: "0.5px solid rgba(15,15,15,0.22)",
   padding: "0.5rem 0",
   outline: "none",
   width: "100%",
