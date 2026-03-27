@@ -75,7 +75,7 @@ export const caseStudies: CaseStudy[] = [
       "Ran content and community strategy across Google Developer Twitter (100K) and LinkedIn (420K). Elevated GDE voices, surfaced creator stories, and published on the Google Developers Blog.",
     metrics: [
       { value: "520K+", label: "Followers managed across channels" },
-      { value: "✍︎", label: "Published on Google Developers Blog" },
+      { value: "I/O '22", label: "Story featured at Google I/O keynote" },
     ],
     company: "Google via Cognizant",
     year: "2022–2024",
