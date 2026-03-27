@@ -73,7 +73,7 @@ export default function CaseStudies({ studies }: CaseStudiesProps) {
             className="text-label text-muted"
             style={{ marginBottom: "1.25rem" }}
           >
-            Published work
+            <em className="font-display font-normal not-italic" style={{ fontStyle: "italic", fontSize: "0.85rem", letterSpacing: "0", textTransform: "none", color: "var(--color-ink)" }}>Published</em>{" "}work
           </p>
           <div>
             {publishedArticles.map((article, i) => (

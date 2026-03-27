@@ -146,7 +146,7 @@ export const publishedArticles: PublishedArticle[] = [
   },
   {
     title: "From a personal notebook to 100K YouTube subscriptions: How Carlos Azaustre turned his notes into a career",
-    publication: "Google Developer Experts",
+    publication: "GDE Medium Publication",
     date: "Nov 2022",
     url: "https://medium.com/google-developer-experts/from-a-personal-notebook-to-100k-youtube-subscriptions-how-carlos-azaustre-turned-his-notes-into-a-601db33b86c0",
   },
