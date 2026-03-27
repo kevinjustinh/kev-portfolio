@@ -96,7 +96,7 @@ export default function CaseStudies({ studies }: CaseStudiesProps) {
                 <div style={{ display: "flex", alignItems: "baseline", gap: "1.25rem", flex: 1, minWidth: 0 }}>
                   <span
                     className="text-label"
-                    style={{ color: "var(--color-muted)", whiteSpace: "nowrap", flexShrink: 0 }}
+                    style={{ color: "var(--color-muted)", whiteSpace: "nowrap", flexShrink: 0, minWidth: "170px" }}
                   >
                     {article.publication}
                   </span>
