@@ -208,7 +208,7 @@ export default function Hero({ stats }: HeroProps) {
                 maxWidth: "420px",
               }}
             >
-              A decade building communities and programs — at Google, Springboard,
+              A decade building communities and programs at Google, Springboard,
               and from scratch.
             </p>
 

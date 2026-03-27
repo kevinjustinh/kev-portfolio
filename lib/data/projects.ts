@@ -39,7 +39,7 @@ export const projects: Project[] = [
     tag: "Website · Next.js · GSAP",
     category: "web",
     description:
-      "Cinematic editorial travel itinerary for a San Francisco weekend with scroll-driven animations and Mapbox integration.",
+      "Cinematic editorial travel itinerary for a San Francisco weekend — scroll-driven animations, an animated video, and Mapbox integration.",
     stack: "Next.js 14 · Mapbox · GSAP · Vercel",
     accentColor: "#F04A00", // sf-trip brand orange exact
     screenshots: [

@@ -34,7 +34,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "100+", label: "Attendees at program events" },
       { value: "XFN", label: "Stakeholder alignment across teams" },
     ],
-    company: "Google · Google.org",
+    company: "Google via Cognizant",
     year: "2022–2024",
     slug: "genai-accelerator",
     featured: true,
@@ -63,7 +63,7 @@ export const caseStudies: CaseStudy[] = [
       "Audited the end-to-end mentor experience, identified friction points, and redesigned onboarding flows that improved mentor quality scores and reduced early churn across the platform.",
     metrics: [{ value: "4.82/5", label: "Avg mentor rating post-redesign" }],
     company: "Springboard",
-    year: "2020",
+    year: "2019–2021",
     slug: "mentor-onboarding",
   },
   {
@@ -72,7 +72,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Managing Google's developer community at scale.",
     titleItalic: "at scale",
     description:
-      "Ran content and community strategy across Google Developer Twitter (100K) and LinkedIn (420K). Elevated GDE voices, surfaced creator stories, and published on the Google Developers Blog.",
+      "Ran content and community strategy across Google Developer Twitter (100K) and LinkedIn (420K). Elevated Google Developer Expert voices, surfaced creator stories, and published on the Google Developers Blog.",
     metrics: [
       { value: "520K+", label: "Followers managed across channels" },
       { value: "I/O '22", label: "Story featured at Google I/O keynote" },
@@ -87,10 +87,9 @@ export const caseStudies: CaseStudy[] = [
     title: "Co-founding RecCheck — from idea to funded iOS app.",
     titleItalic: "funded iOS app",
     description:
-      "Built and launched an iOS app from scratch, raised $25K in early funding, and pitched competitively at Draper University. First-hand zero-to-one product ownership.",
+      "Built and launched an iOS app from scratch and raised $25K in early funding. First-hand zero-to-one product ownership.",
     metrics: [
       { value: "$25K", label: "Early funding raised" },
-      { value: "2nd", label: "Place — Draper pitch competition" },
     ],
     company: "RecCheck Inc",
     year: "2013–2019",
@@ -107,18 +106,6 @@ export type PublishedArticle = {
 
 export const publishedArticles: PublishedArticle[] = [
   {
-    title: "Yonatan Levin, Android GDE, uses his developer superpowers to help refugees in Ukraine",
-    publication: "Google Developers Blog",
-    date: "Apr 2023",
-    url: "https://developers.googleblog.com/yonatan-levin-android-gde-uses-his-developer-superpowers-to-help-refugees-in-ukraine/",
-  },
-  {
-    title: "How web GDE Erick Wendel forever changed Node.js with the support of the open-source community",
-    publication: "Google Developers Blog",
-    date: "May 2023",
-    url: "https://developers.googleblog.com/how-web-gde-erick-wendel-forever-changed-nodejs-with-the-support-of-the-open-source-community/",
-  },
-  {
     title: "How Machine Learning GDE Henry Ruiz is inspired by resilience in his community",
     publication: "Google Developers Blog",
     date: "Oct 2023",
@@ -131,6 +118,12 @@ export const publishedArticles: PublishedArticle[] = [
     url: "https://developers.googleblog.com/cybersecurity-awareness-month-web-gde-shrutirupa-banerjiee-shares-how-we-can-stay-safe-in-a-world-of-cyber-attacks/",
   },
   {
+    title: "How web GDE Erick Wendel forever changed Node.js with the support of the open-source community",
+    publication: "Google Developers Blog",
+    date: "May 2023",
+    url: "https://developers.googleblog.com/how-web-gde-erick-wendel-forever-changed-nodejs-with-the-support-of-the-open-source-community/",
+  },
+  {
     title: "AAPI Heritage Month: How Web GDE Vickie Li views the importance of diversity",
     publication: "Google Developers Blog",
     date: "May 2023",
@@ -141,5 +134,11 @@ export const publishedArticles: PublishedArticle[] = [
     publication: "Google Developers Blog",
     date: "May 2023",
     url: "https://developers.googleblog.com/how-web-gde-martine-dowden-approaches-web-design-from-an-accessibility-perspective/",
+  },
+  {
+    title: "Yonatan Levin, Android GDE, uses his developer superpowers to help refugees in Ukraine",
+    publication: "Google Developers Blog",
+    date: "Apr 2023",
+    url: "https://developers.googleblog.com/yonatan-levin-android-gde-uses-his-developer-superpowers-to-help-refugees-in-ukraine/",
   },
 ];
