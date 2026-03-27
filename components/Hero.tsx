@@ -170,7 +170,7 @@ export default function Hero({ stats }: HeroProps) {
           className="hero-title"
           style={{
             fontFamily: "var(--font-display), Georgia, serif",
-            fontSize: "clamp(3.5rem, 7.5vw, 6.5rem)",
+            fontSize: "clamp(2.8rem, 5.5vw, 4.8rem)",
             lineHeight: 1.0,
             letterSpacing: "-0.03em",
             fontWeight: 400,
