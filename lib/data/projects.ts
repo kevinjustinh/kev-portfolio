@@ -92,7 +92,7 @@ export const projects: Project[] = [
     tag: "Chrome Extension",
     category: "web",
     description:
-      "Chrome extension that scrapes and logs job listings directly to Google Sheets — built during the job search.",
+      "Built a Chrome extension mid-job-search to scrape and log job listings directly to Google Sheets. Needed the tool, so I built it.",
     stack: "Manifest V3 · Google Sheets API",
     accentColor: "#2C5F4A", // Catchr header green exact
     screenshots: [

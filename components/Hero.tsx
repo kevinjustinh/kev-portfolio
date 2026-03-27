@@ -208,8 +208,8 @@ export default function Hero({ stats }: HeroProps) {
                 maxWidth: "420px",
               }}
             >
-              Program ops and community professional with 10+ years at Google
-              (via Cognizant), Springboard, and more.
+              A decade building communities and programs — at Google, Springboard,
+              and from scratch.
             </p>
 
             <div

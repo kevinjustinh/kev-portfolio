@@ -1,5 +1,5 @@
 export const bio =
-  "I've spent a decade making developer and startup communities run, launching accelerators, managing creator programs, and telling stories to a 520K+ audience. Former founder. Currently vibe coding on the side and figuring out what to build next. Based in SF Bay Area, open to community-centric roles.";
+  "I've spent a decade making developer and startup communities run, launching accelerators, managing creator programs, and telling stories to a 520K+ audience. Former founder. Currently vibe coding on the side and figuring out what to build next. Based in the SF Bay Area. Open to community, program ops, and DevRel roles.";
 
 export const experience = [
   {
