@@ -26,6 +26,8 @@ export default function ProjectCard({
         style={{
           cursor: onClick ? "pointer" : "default",
           overflow: "hidden",
+          background: "#222220",
+          border: "none",
         }}
       >
         {/* Desktop: 2-col — accent block left, content right */}
