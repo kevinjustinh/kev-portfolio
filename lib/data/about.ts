@@ -4,12 +4,12 @@ export const bio =
 export const experience = [
   {
     company: "Google via Cognizant",
-    role: "Program Manager · Developer Relations",
+    role: "Community Manager · Developer Relations",
     years: "2022–2024",
   },
   {
     company: "Springboard",
-    role: "Operations Manager, ML/AI",
+    role: "Operations Manager",
     years: "2019–2021",
   },
   {
