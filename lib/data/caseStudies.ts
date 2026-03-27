@@ -23,16 +23,16 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     index: "01",
-    tag: "Program Launch · DevRel",
+    tag: "Program Launch · Accelerators",
     title: "Launching Google.org's GenAI Accelerator from zero.",
     titleItalic: "GenAI Accelerator",
     description:
-      "Owned end-to-end program operations for Google.org's GenAI Accelerator — from onboarding design and stakeholder coordination to cohort delivery. Built the playbook from scratch and delivered a 4.9/5 participant experience at scale.",
+      "Coordinated end-to-end logistics for Google.org's inaugural Generative AI Accelerator: venue, catering, hotel, and offsite for 100+ attendees across 21 nonprofits. Collaborated cross-functionally with Google.org and Google for Startups to deliver a 4.9/5 participant experience.",
     metrics: [
       { value: "4.9/5", label: "CSAT participant satisfaction" },
-      { value: "0→1", label: "Program built from scratch" },
+      { value: "21", label: "Nonprofits across the cohort" },
+      { value: "100+", label: "Attendees at program events" },
       { value: "XFN", label: "Cross-functional stakeholder alignment" },
-      { value: "I/O '22", label: "Featured at Google I/O keynote" },
     ],
     company: "Google · Google.org",
     year: "2022–2024",
@@ -41,11 +41,11 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     index: "02",
-    tag: "Ops Turnaround · ML/AI",
+    tag: "Ops Turnaround · Community Health",
     title: "Taking Springboard's ML program NPS from 0 to 100.",
     titleItalic: "0 to 100",
     description:
-      "Inherited a broken student experience and rebuilt the operational foundation — support workflows, escalation paths, and mentor accountability — to deliver a full NPS turnaround in under 12 months.",
+      "Inherited a broken mentoring experience, identified dissatisfied mentors, and rebuilt trust through 1:1 conversations and hands-on support, delivering a 0 to 100 NPS turnaround in one month.",
     metrics: [
       { value: "0→100", label: "NPS lift in ML program" },
       { value: "4.82/5", label: "Avg mentor rating" },

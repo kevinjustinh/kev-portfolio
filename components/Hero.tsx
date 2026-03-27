@@ -178,7 +178,7 @@ export default function Hero({ stats }: HeroProps) {
             marginBottom: "3rem",
           }}
         >
-          I build programs people{" "}
+          I build programs and communities people{" "}
           <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>
             actually
           </em>{" "}
@@ -208,9 +208,8 @@ export default function Hero({ stats }: HeroProps) {
                 maxWidth: "420px",
               }}
             >
-              Program ops and community leader with 10+ years at Google,
-              Springboard, and beyond. I also ship iOS apps and web projects in
-              public.
+              Program ops and community leader with 10+ years at Google (via
+              Cognizant), Springboard, and beyond.
             </p>
 
             <div

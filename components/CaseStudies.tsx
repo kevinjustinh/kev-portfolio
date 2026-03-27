@@ -38,7 +38,7 @@ export default function CaseStudies({ studies }: CaseStudiesProps) {
           id="case-studies-heading"
           className="text-section-title text-ink mb-10 md:mb-12"
         >
-          Programs I&apos;ve built and{" "}
+          Programs I&apos;ve worked on and{" "}
           <em className="italic">what they did.</em>
         </h2>
 

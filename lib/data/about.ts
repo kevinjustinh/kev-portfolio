@@ -1,5 +1,5 @@
 export const bio =
-  "I've spent a decade making developer communities run — from launching accelerators to scaling creator programs to 520K+ on LinkedIn. I'm also a founder and self-taught iOS developer, building real products in public. Based in the SF Bay Area, open to the right opportunity.";
+  "I've spent a decade making developer communities run, launching accelerators, managing creator programs, and telling stories to a 520K+ audience. Former founder. Currently vibe coding on the side and figuring out what to build next. Based in SF Bay Area, open to community-centric roles.";
 
 export const experience = [
   {
@@ -15,7 +15,7 @@ export const experience = [
   {
     company: "Draper University",
     role: "Program Manager",
-    years: "2018–2019",
+    years: "2016–2019",
   },
   {
     company: "RecCheck Inc",
@@ -48,7 +48,7 @@ export const heroStats = [
   {
     value: "520",
     suffix: "K+",
-    label: "Social followers managed across Google Developer channels",
+    label: "Audience written to across Google Developer channels",
   },
   {
     value: "0→100",
