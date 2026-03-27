@@ -103,8 +103,8 @@ export default function Contact() {
                 marginBottom: "2rem",
               }}
             >
-              Community management, program ops, and DevRel roles. I bring a
-              builder&apos;s perspective — I ship products, not just programs.
+              Community management, program ops, and DevRel roles. I show up
+              curious, stay until it&apos;s done, and remember everyone&apos;s name.
             </p>
 
             {/* Availability badge */}

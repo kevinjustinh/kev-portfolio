@@ -61,7 +61,10 @@ export const caseStudies: CaseStudy[] = [
     titleItalic: "mentor onboarding",
     description:
       "Audited the end-to-end mentor experience, identified friction points, and redesigned onboarding flows that improved mentor quality scores and reduced early churn across the platform.",
-    metrics: [{ value: "4.82/5", label: "Avg mentor rating post-redesign" }],
+    metrics: [
+      { value: "E2E", label: "Full audit-to-redesign process" },
+      { value: "↓", label: "Reduced early mentor churn" },
+    ],
     company: "Springboard",
     year: "2019–2021",
     slug: "mentor-onboarding",
