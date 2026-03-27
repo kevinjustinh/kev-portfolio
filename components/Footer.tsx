@@ -32,8 +32,9 @@ export default function Footer() {
             style={{ listStyle: "none", margin: 0, padding: 0 }}
           >
             {[
-              { label: "Case Studies", href: "#case-studies" },
               { label: "About", href: "#about" },
+              { label: "Case Studies", href: "#case-studies" },
+              { label: "Vibe Coding", href: "#projects" },
               { label: "Resume ↗", href: "/resume.pdf" },
               { label: "Contact", href: "#contact" },
             ].map(({ label, href }) => (
