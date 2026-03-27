@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, DM_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import "./globals.css";
 
@@ -44,6 +45,7 @@ export default function RootLayout({
     >
       <body className="antialiased">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <Analytics />
       </body>
     </html>
   );
