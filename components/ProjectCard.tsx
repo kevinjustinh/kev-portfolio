@@ -2,6 +2,7 @@
 // variant="featured": full-width, accent color block left + content right
 // variant="standard": tag pill, name, description, stack, footer
 
+import Image from "next/image";
 import type { Project } from "@/lib/data/projects";
 
 interface ProjectCardProps {
@@ -44,16 +45,21 @@ export default function ProjectCard({
               padding: "1.5rem",
               position: "relative",
               overflow: "hidden",
-              ...(project.screenshots?.[0] ? {
-                backgroundImage: `url(${project.screenshots[0]})`,
-                backgroundSize: "contain",
-                backgroundPosition: "center center",
-                backgroundRepeat: "no-repeat",
-              } : {}),
             }}
           >
+            {project.screenshots?.[0] && (
+              <Image
+                src={project.screenshots[0]}
+                alt=""
+                fill
+                style={{ objectFit: "contain" }}
+                sizes="(max-width: 768px) 100vw, 40vw"
+              />
+            )}
             <span
               style={{
+                position: "relative",
+                zIndex: 1,
                 fontSize: "0.6rem",
                 fontWeight: 500,
                 letterSpacing: "0.12em",
@@ -152,17 +158,22 @@ export default function ProjectCard({
               alignItems: "flex-end",
               position: "relative",
               overflow: "hidden",
-              ...(project.screenshots?.[0] ? {
-                backgroundImage: `url(${project.screenshots[0]})`,
-                backgroundSize: "contain",
-                backgroundPosition: "center center",
-                backgroundRepeat: "no-repeat",
-              } : {}),
               padding: "1rem 1.5rem",
             }}
           >
+            {project.screenshots?.[0] && (
+              <Image
+                src={project.screenshots[0]}
+                alt=""
+                fill
+                style={{ objectFit: "contain" }}
+                sizes="100vw"
+              />
+            )}
             <span
               style={{
+                position: "relative",
+                zIndex: 1,
                 fontSize: "0.6rem",
                 fontWeight: 500,
                 letterSpacing: "0.12em",
@@ -265,10 +276,12 @@ export default function ProjectCard({
         }}
       >
         {project.screenshots?.[0] ? (
-          <img
+          <Image
             src={project.screenshots[0]}
             alt={`${project.name} screenshot`}
-            style={{ width: "100%", height: "100%", objectFit: "contain", padding: project.screenshotPadding?.[0] ?? undefined }}
+            fill
+            style={{ objectFit: "contain", padding: project.screenshotPadding?.[0] ?? undefined }}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         ) : (
           project.accentColor && (

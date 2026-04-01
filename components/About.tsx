@@ -4,6 +4,7 @@
 // Full-width headline at large scale, then bio + availability left / experience list right
 
 import { useRef } from "react";
+import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import type { experience as ExperienceType } from "@/lib/data/about";
 
@@ -30,13 +31,19 @@ export default function About({ bio, experience }: AboutProps) {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "url('/About/Photo 3.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
           opacity: 0.25,
           pointerEvents: "none",
         }}
-      />
+      >
+        <Image
+          src="/About/Photo 3.jpg"
+          alt=""
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="100vw"
+          quality={50}
+        />
+      </div>
       {/* Cream wash to keep text readable */}
       <div
         aria-hidden="true"
