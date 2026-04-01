@@ -109,10 +109,16 @@ export type PublishedArticle = {
 
 export const publishedArticles: PublishedArticle[] = [
   {
-    title: "How Machine Learning GDE Henry Ruiz is inspired by resilience in his community",
+    title: "Yonatan Levin, Android GDE, uses his developer superpowers to help refugees in Ukraine",
     publication: "Google Developers Blog",
-    date: "Oct 2023",
-    url: "https://developers.googleblog.com/how-machine-learning-gde-henry-ruiz-is-inspired-by-resilience-in-his-community/",
+    date: "Apr 2023",
+    url: "https://developers.googleblog.com/yonatan-levin-android-gde-uses-his-developer-superpowers-to-help-refugees-in-ukraine/",
+  },
+  {
+    title: "How web GDE Erick Wendel forever changed Node.js with the support of the open-source community",
+    publication: "Google Developers Blog",
+    date: "May 2023",
+    url: "https://developers.googleblog.com/how-web-gde-erick-wendel-forever-changed-nodejs-with-the-support-of-the-open-source-community/",
   },
   {
     title: "Cybersecurity Awareness Month: Web GDE Shrutirupa Banerjiee shares how we can stay safe in a world of cyber attacks",
@@ -121,10 +127,10 @@ export const publishedArticles: PublishedArticle[] = [
     url: "https://developers.googleblog.com/cybersecurity-awareness-month-web-gde-shrutirupa-banerjiee-shares-how-we-can-stay-safe-in-a-world-of-cyber-attacks/",
   },
   {
-    title: "How web GDE Erick Wendel forever changed Node.js with the support of the open-source community",
+    title: "How Machine Learning GDE Henry Ruiz is inspired by resilience in his community",
     publication: "Google Developers Blog",
-    date: "May 2023",
-    url: "https://developers.googleblog.com/how-web-gde-erick-wendel-forever-changed-nodejs-with-the-support-of-the-open-source-community/",
+    date: "Oct 2023",
+    url: "https://developers.googleblog.com/how-machine-learning-gde-henry-ruiz-is-inspired-by-resilience-in-his-community/",
   },
   {
     title: "AAPI Heritage Month: How Web GDE Vickie Li views the importance of diversity",
@@ -137,12 +143,6 @@ export const publishedArticles: PublishedArticle[] = [
     publication: "Google Developers Blog",
     date: "May 2023",
     url: "https://developers.googleblog.com/how-web-gde-martine-dowden-approaches-web-design-from-an-accessibility-perspective/",
-  },
-  {
-    title: "Yonatan Levin, Android GDE, uses his developer superpowers to help refugees in Ukraine",
-    publication: "Google Developers Blog",
-    date: "Apr 2023",
-    url: "https://developers.googleblog.com/yonatan-levin-android-gde-uses-his-developer-superpowers-to-help-refugees-in-ukraine/",
   },
   {
     title: "From a personal notebook to 100K YouTube subscriptions: How Carlos Azaustre turned his notes into a career",

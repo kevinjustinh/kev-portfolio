@@ -4,7 +4,7 @@
 // Featured full-width card (Google.org) + 2×2 border-gap grid below
 // Staggered scroll reveal on cards
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useReveal, useRevealCards } from "@/hooks/useReveal";
 import type { CaseStudy } from "@/lib/data/caseStudies";
 import { publishedArticles } from "@/lib/data/caseStudies";
@@ -17,6 +17,8 @@ export interface CaseStudiesProps {
 export default function CaseStudies({ studies }: CaseStudiesProps) {
   const featured = studies.find((s) => s.featured);
   const grid = studies.filter((s) => !s.featured);
+  const [expanded, setExpanded] = useState(false);
+  const visibleArticles = expanded ? publishedArticles : publishedArticles.slice(0, 3);
 
   const featuredRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -76,7 +78,7 @@ export default function CaseStudies({ studies }: CaseStudiesProps) {
             <em className="font-display font-normal not-italic" style={{ fontStyle: "italic", fontSize: "0.85rem", letterSpacing: "0", textTransform: "none", color: "var(--color-ink)" }}>Published</em>{" "}work
           </p>
           <div>
-            {publishedArticles.map((article, i) => (
+            {visibleArticles.map((article, i) => (
               <a
                 key={article.url}
                 href={article.url}
@@ -113,19 +115,39 @@ export default function CaseStudies({ studies }: CaseStudiesProps) {
                     {article.title}
                   </span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexShrink: 0 }}>
-                  <span className="text-label text-muted">{article.date}</span>
-                  <span
-                    className="pub-article-arrow"
-                    style={{ fontSize: "0.8rem", color: "var(--color-muted)", transition: "color 150ms ease, transform 150ms ease", display: "inline-block" }}
-                    aria-hidden="true"
-                  >
-                    ↗
-                  </span>
-                </div>
+                <span
+                  className="pub-article-arrow"
+                  style={{ fontSize: "0.8rem", color: "var(--color-muted)", transition: "color 150ms ease, transform 150ms ease", display: "inline-block", flexShrink: 0 }}
+                  aria-hidden="true"
+                >
+                  ↗
+                </span>
               </a>
             ))}
           </div>
+          {publishedArticles.length > 3 && (
+            <button
+              onClick={() => setExpanded((v) => !v)}
+              style={{
+                marginTop: "1rem",
+                fontFamily: "var(--font-body)",
+                fontSize: "0.65rem",
+                fontWeight: 500,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--color-muted)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+                transition: "color 150ms ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-ink)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-muted)")}
+            >
+              {expanded ? "Show less ↑" : `Show all ${publishedArticles.length} articles ↓`}
+            </button>
+          )}
         </div>
 
         <style>{`
