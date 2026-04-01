@@ -115,8 +115,7 @@ export default function Hero({ stats }: HeroProps) {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
       tl.fromTo(".hero-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 })
-        .fromTo(".hero-title",   { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, "-=0.3")
-        .fromTo(".hero-body",    { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3")
+        .fromTo(".hero-body",    { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 })
         .fromTo(".hero-actions", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, "-=0.2")
         .fromTo(".hero-stats",   { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
     });
