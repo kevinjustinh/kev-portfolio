@@ -134,6 +134,8 @@ export default function Contact() {
                 marginTop: "2rem",
                 paddingTop: "2rem",
                 borderTop: "0.5px solid var(--color-border)",
+                flexWrap: "wrap",
+                rowGap: "0.75rem",
               }}
             >
               <a
