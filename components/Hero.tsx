@@ -186,10 +186,8 @@ export default function Hero({ stats }: HeroProps) {
 
         {/* Below headline: two-column — body+CTAs left, stats card right */}
         <div
+          className="grid grid-cols-1 gap-8 md:grid-cols-[55%_45%] md:gap-16"
           style={{
-            display: "grid",
-            gridTemplateColumns: "55% 45%",
-            gap: "4rem",
             alignItems: "end",
             paddingBottom: "5rem",
           }}
