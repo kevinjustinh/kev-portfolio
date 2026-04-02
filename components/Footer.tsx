@@ -26,7 +26,7 @@ export default function Footer() {
         </Link>
 
         {/* Nav links */}
-        <nav aria-label="Footer navigation">
+        <nav aria-label="Footer navigation" className="hidden md:block">
           <ul
             className="flex items-center gap-6"
             style={{ listStyle: "none", margin: 0, padding: 0 }}
