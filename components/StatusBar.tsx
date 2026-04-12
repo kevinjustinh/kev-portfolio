@@ -47,7 +47,7 @@ export default function StatusBar() {
           align-items: center;
           gap: 0.75rem;
           padding: 1rem 1.5rem;
-          border-bottom: 0.5px solid rgba(15,15,15,0.14);
+          border-bottom: 0.5px solid rgba(255,255,255,0.1);
         }
         .sb-details {
           display: grid;
@@ -58,8 +58,8 @@ export default function StatusBar() {
           display: flex;
           flex-direction: column;
           gap: 0.15rem;
-          border-right: 0.5px solid rgba(15,15,15,0.14);
-          border-bottom: 0.5px solid rgba(15,15,15,0.14);
+          border-right: 0.5px solid rgba(255,255,255,0.1);
+          border-bottom: 0.5px solid rgba(255,255,255,0.1);
         }
         .sb-detail:nth-child(even) { border-right: none; }
         .sb-detail:nth-last-child(-n+2) { border-bottom: none; }
@@ -69,18 +69,18 @@ export default function StatusBar() {
           .sb-main {
             padding: 1rem 2.5rem;
             border-bottom: none;
-            border-right: 0.5px solid rgba(15,15,15,0.14);
+            border-right: 0.5px solid rgba(255,255,255,0.1);
             flex-shrink: 0;
           }
           .sb-details { display: flex; flex: 1; }
           .sb-detail {
             padding: 1rem 2rem;
             border-bottom: none;
-            border-right: 0.5px solid rgba(15,15,15,0.14);
+            border-right: 0.5px solid rgba(255,255,255,0.1);
             flex-shrink: 0;
           }
           .sb-detail:last-child { border-right: none; }
-          .sb-detail:nth-child(even) { border-right: 0.5px solid rgba(15,15,15,0.14); }
+          .sb-detail:nth-child(even) { border-right: 0.5px solid rgba(255,255,255,0.1); }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -91,9 +91,9 @@ export default function StatusBar() {
       <div
         ref={barRef}
         style={{
-          background: "var(--color-bg)",
-          borderTop: "0.5px solid rgba(15,15,15,0.14)",
-          borderBottom: "0.5px solid rgba(15,15,15,0.14)",
+          background: "#111110",
+          borderTop: "0.5px solid rgba(255,255,255,0.1)",
+          borderBottom: "0.5px solid rgba(255,255,255,0.1)",
         }}
         aria-label="Availability status"
       >
@@ -106,7 +106,7 @@ export default function StatusBar() {
                 fontSize: "0.72rem",
                 fontWeight: 500,
                 letterSpacing: "0.04em",
-                color: "var(--color-ink)",
+                color: "#fff",
                 whiteSpace: "nowrap",
               }}
             >
@@ -124,7 +124,7 @@ export default function StatusBar() {
                     fontWeight: 500,
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
-                    color: "var(--color-muted)",
+                    color: "rgba(255,255,255,0.5)",
                   }}
                 >
                   {detail.label}
@@ -133,7 +133,7 @@ export default function StatusBar() {
                   style={{
                     fontSize: "0.72rem",
                     fontWeight: 400,
-                    color: "var(--color-ink)",
+                    color: "#fff",
                     whiteSpace: "nowrap",
                   }}
                 >

@@ -15,6 +15,7 @@ const NAV_LINKS = [
 export default function Nav() {
   const navRef = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [atTop, setAtTop] = useState(true);
 
   // Hide on scroll down, show on scroll up + transparent at top
   useEffect(() => {
@@ -25,8 +26,11 @@ export default function Nav() {
 
     const update = () => {
       const y = window.scrollY;
-      // Transparency: clear at top, solid once scrolled
-      nav.style.backgroundColor = y < 20 ? "transparent" : "var(--color-bg)";
+      const isAtTop = y < 20;
+      setAtTop(isAtTop);
+      nav.style.backgroundColor = isAtTop ? "transparent" : "rgba(245,242,237,0.96)";
+      nav.style.backdropFilter = isAtTop ? "none" : "blur(8px)";
+      nav.style.borderBottom = isAtTop ? "none" : "0.5px solid var(--color-border)";
       // Hide/show on scroll direction
       if (y > lastScrollY && y > 80) {
         nav.style.transform = "translateY(-100%)";
@@ -51,8 +55,8 @@ export default function Nav() {
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: "var(--color-bg)",
-        transition: "transform 200ms ease",
+        backgroundColor: "transparent",
+        transition: "transform 200ms ease, background-color 300ms ease, border-color 300ms ease",
       }}
     >
       <div className="container-site" style={{ height: "64px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -65,10 +69,11 @@ export default function Nav() {
             fontFamily: "var(--font-display), Georgia, serif",
             fontStyle: "italic",
             fontSize: "1.35rem",
-            color: "var(--color-ink)",
+            color: atTop ? "#fff" : "var(--color-ink)",
             textDecoration: "none",
             letterSpacing: "-0.01em",
             lineHeight: 1,
+            transition: "color 300ms ease",
           }}
         >
           Kevin J Hernandez
@@ -99,20 +104,22 @@ export default function Nav() {
                     fontWeight: 400,
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "var(--color-ink)",
+                    color: atTop ? "rgba(255,255,255,0.85)" : "var(--color-ink)",
                     textDecoration: "none",
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "0.25rem",
+                    transition: "color 300ms ease",
                   }}
                 >
                   <span
                     aria-hidden="true"
                     style={{
-                      color: "var(--color-muted)",
+                      color: atTop ? "rgba(255,255,255,0.4)" : "var(--color-muted)",
                       fontSize: "0.55rem",
                       fontWeight: 300,
                       letterSpacing: "0.06em",
+                      transition: "color 300ms ease",
                     }}
                   >
                     {num}
