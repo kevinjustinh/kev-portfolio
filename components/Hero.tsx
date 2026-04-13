@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import type { heroStats } from "@/lib/data/about";
 
@@ -8,7 +8,54 @@ export interface HeroProps {
   stats: typeof heroStats;
 }
 
+const VIDEO_SRC = "/video/v3-loop-90.mp4";
+const CROSSFADE = 1.0; // seconds of overlap between the two videos
+
 export default function Hero({ stats }: HeroProps) {
+  const videoARef = useRef<HTMLVideoElement>(null);
+  const videoBRef = useRef<HTMLVideoElement>(null);
+  const activeRef = useRef<"a" | "b">("a");
+  const crossfadingRef = useRef(false);
+
+  // Seamless two-video crossfade loop — avoids the hard seek that loop causes
+  useEffect(() => {
+    const a = videoARef.current;
+    const b = videoBRef.current;
+    if (!a || !b) return;
+
+    const getActive  = () => activeRef.current === "a" ? a : b;
+    const getStandby = () => activeRef.current === "a" ? b : a;
+
+    const handleTimeUpdate = (e: Event) => {
+      const active = getActive();
+      if (e.target !== active || !active.duration || crossfadingRef.current) return;
+
+      const remaining = active.duration - active.currentTime;
+      if (remaining > CROSSFADE) return;
+
+      crossfadingRef.current = true;
+      const standby = getStandby();
+      standby.currentTime = 0;
+      standby.play().catch(() => {});
+
+      gsap.to(active,  { opacity: 0,   duration: CROSSFADE, ease: "none" });
+      gsap.to(standby, { opacity: 0.1, duration: CROSSFADE, ease: "none",
+        onComplete: () => {
+          active.pause();
+          active.currentTime = 0;
+          activeRef.current   = activeRef.current === "a" ? "b" : "a";
+          crossfadingRef.current = false;
+        },
+      });
+    };
+
+    a.addEventListener("timeupdate", handleTimeUpdate);
+    b.addEventListener("timeupdate", handleTimeUpdate);
+    return () => {
+      a.removeEventListener("timeupdate", handleTimeUpdate);
+      b.removeEventListener("timeupdate", handleTimeUpdate);
+    };
+  }, []);
 
   // Page-load stagger: eyebrow → title → body → actions → stats
   useEffect(() => {
@@ -34,26 +81,29 @@ export default function Hero({ stats }: HeroProps) {
       aria-label="Introduction"
       style={{ backgroundColor: "#111110", position: "relative", overflow: "hidden", flex: 1 }}
     >
-      {/* Video background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "top",
-          opacity: 0.1,
-          pointerEvents: "none",
-        }}
-      >
-        <source src="/video/hero_video_3.mp4" type="video/mp4" />
-      </video>
+      {/* Two-video crossfade — prevents the hard seek flash that loop causes */}
+      {(["a", "b"] as const).map((id) => (
+        <video
+          key={id}
+          ref={id === "a" ? videoARef : videoBRef}
+          autoPlay={id === "a"}
+          muted
+          playsInline
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "top",
+            opacity: id === "a" ? 0.1 : 0,
+            pointerEvents: "none",
+          }}
+        >
+          <source src={VIDEO_SRC} type="video/mp4" />
+        </video>
+      ))}
 
       <div
         className="container-site"
