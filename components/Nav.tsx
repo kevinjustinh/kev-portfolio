@@ -55,11 +55,12 @@ export default function Nav() {
         left: 0,
         right: 0,
         zIndex: 50,
+        height: "52px",
         backgroundColor: "transparent",
         transition: "transform 200ms ease, background-color 300ms ease, border-color 300ms ease",
       }}
     >
-      <div className="container-site" style={{ height: "64px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div className="container-site" style={{ height: "52px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
         {/* Logo */}
         <Link
