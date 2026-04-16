@@ -73,7 +73,7 @@ function MobileLayout({
       {/* Static full-width banner */}
       <div style={{ width: "100%", lineHeight: 0 }}>
         <Image
-          src="/images/portfolio_hero_2.png"
+          src="/images/portfolio_hero_2.webp"
           alt="SF Bay Area developer community map illustration"
           width={2400}
           height={900}
@@ -591,7 +591,7 @@ export default function CaseStudiesExpansion({ studies }: CaseStudiesExpansionPr
         >
           <Image
             ref={imgRef}
-            src="/images/portfolio_hero_2.png"
+            src="/images/portfolio_hero_2.webp"
             alt="SF Bay Area developer community map illustration"
             width={2400}
             height={900}

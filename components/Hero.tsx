@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import type { heroStats } from "@/lib/data/about";
 
@@ -12,10 +12,20 @@ const VIDEO_SRC = "/video/v3-loop-90.mp4";
 const CROSSFADE = 1.0; // seconds of overlap between the two videos
 
 export default function Hero({ stats }: HeroProps) {
+  const [isDesktop, setIsDesktop] = useState(false);
   const videoARef = useRef<HTMLVideoElement>(null);
   const videoBRef = useRef<HTMLVideoElement>(null);
   const activeRef = useRef<"a" | "b">("a");
   const crossfadingRef = useRef(false);
+
+  // Detect desktop — video is only rendered (and downloaded) on md+ screens
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   // Seamless two-video crossfade loop — avoids the hard seek that loop causes
   useEffect(() => {
@@ -81,8 +91,27 @@ export default function Hero({ stats }: HeroProps) {
       aria-label="Introduction"
       style={{ backgroundColor: "#111110", position: "relative", overflow: "hidden", flex: 1 }}
     >
-      {/* Two-video crossfade — prevents the hard seek flash that loop causes */}
-      {(["a", "b"] as const).map((id) => (
+      {/* Mobile: static still image */}
+      <img
+        src="/images/hero-still.webp"
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        className="md:hidden"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "top",
+          opacity: 0.1,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Desktop only: video is not rendered in the DOM on mobile — prevents download */}
+      {isDesktop && (["a", "b"] as const).map((id) => (
         <video
           key={id}
           ref={id === "a" ? videoARef : videoBRef}
@@ -107,7 +136,13 @@ export default function Hero({ stats }: HeroProps) {
 
       <div
         className="container-site"
-        style={{ paddingTop: "4.5rem", paddingBottom: 0 }}
+        style={{
+          paddingTop: "4.5rem",
+          paddingBottom: 0,
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100%",
+        }}
       >
         {/* Eyebrow */}
         <p
@@ -121,25 +156,26 @@ export default function Hero({ stats }: HeroProps) {
           Program Ops · Community · Builder
         </p>
 
-        {/* H1 — spans full container width, no column constraint */}
-        <h1
-          className="hero-title"
-          style={{
-            fontFamily: "var(--font-display), Georgia, serif",
-            fontSize: "clamp(2.8rem, 5.5vw, 4.8rem)",
-            lineHeight: 1.0,
-            letterSpacing: "-0.03em",
-            fontWeight: 400,
-            color: "#fff",
-            marginBottom: "3rem",
-          }}
-        >
-          I build programs and communities people{" "}
-          <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>
-            actually
-          </em>{" "}
-          care about.
-        </h1>
+        {/* H1 — vertically centered in the space between eyebrow and bottom content */}
+        <div style={{ flex: 1, display: "flex", alignItems: "center" }}>
+          <h1
+            className="hero-title"
+            style={{
+              fontFamily: "var(--font-display), Georgia, serif",
+              fontSize: "clamp(2.8rem, 5.5vw, 4.8rem)",
+              lineHeight: 1.0,
+              letterSpacing: "-0.03em",
+              fontWeight: 400,
+              color: "#fff",
+            }}
+          >
+            I build programs and communities people{" "}
+            <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>
+              actually
+            </em>{" "}
+            care about.
+          </h1>
+        </div>
 
         {/* Below headline: two-column — body+CTAs left, stats card right */}
         <div

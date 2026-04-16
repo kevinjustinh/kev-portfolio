@@ -65,7 +65,7 @@ export default function Nav() {
         {/* Logo */}
         <Link
           href="/"
-          aria-label="Kevin Hernandez — home"
+          aria-label="Kevin J Hernandez — home"
           style={{
             fontFamily: "var(--font-display), Georgia, serif",
             fontStyle: "italic",
@@ -116,7 +116,7 @@ export default function Nav() {
                   <span
                     aria-hidden="true"
                     style={{
-                      color: atTop ? "rgba(255,255,255,0.4)" : "var(--color-muted)",
+                      color: atTop ? "rgba(255,255,255,0.65)" : "var(--color-muted)",
                       fontSize: "0.55rem",
                       fontWeight: 300,
                       letterSpacing: "0.06em",

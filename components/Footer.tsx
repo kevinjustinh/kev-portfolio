@@ -20,7 +20,7 @@ export default function Footer() {
           href="/"
           className="font-display font-normal text-ink"
           style={{ fontSize: "1.05rem", textDecoration: "none" }}
-          aria-label="Kevin Hernandez — home"
+          aria-label="Kevin J Hernandez — home"
         >
           Kevin J Hernandez
         </Link>
