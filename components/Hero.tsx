@@ -28,6 +28,8 @@ export default function Hero({ stats }: HeroProps) {
   }, []);
 
   // Seamless two-video crossfade loop — avoids the hard seek that loop causes
+  // Must depend on isDesktop: videos aren't in the DOM until isDesktop is true,
+  // so refs are null on the initial mount run.
   useEffect(() => {
     const a = videoARef.current;
     const b = videoBRef.current;
@@ -65,7 +67,7 @@ export default function Hero({ stats }: HeroProps) {
       a.removeEventListener("timeupdate", handleTimeUpdate);
       b.removeEventListener("timeupdate", handleTimeUpdate);
     };
-  }, []);
+  }, [isDesktop]);
 
   // Page-load stagger: eyebrow → title → body → actions → stats
   useEffect(() => {
