@@ -78,6 +78,7 @@ function MobileLayout({
           width={2400}
           height={900}
           priority
+          unoptimized
           style={{ width: "100%", height: "auto", display: "block" }}
         />
       </div>
@@ -596,6 +597,7 @@ export default function CaseStudiesExpansion({ studies }: CaseStudiesExpansionPr
             width={2400}
             height={900}
             priority
+            unoptimized
             style={{ display: "block", width: "100%", height: "auto", objectFit: "contain" }}
           />
         </div>
