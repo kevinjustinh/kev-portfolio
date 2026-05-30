@@ -262,13 +262,12 @@ export default function ProjectCard({
         overflow: "hidden",
         border: "0.5px solid rgba(245,242,237,0.08)",
         ...(project.accentColor ? { borderTop: `2.5px solid ${project.accentColor}` } : {}),
-        ...(isLastOdd ? { gridColumn: "1 / -1" } : {}),
       }}
     >
       {/* Image / screenshot area */}
       <div
         style={{
-          aspectRatio: isLastOdd ? "16/5" : "3/2",
+          aspectRatio: "3/2",
           position: "relative",
           overflow: "hidden",
           flexShrink: 0,

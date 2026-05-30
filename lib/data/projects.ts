@@ -14,13 +14,45 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Blue42",
+    tag: "Web App · AI",
+    category: "web",
+    description:
+      "Built for my fantasy league when I got tired of guessing. Pulls live data from Sleeper and ESPN into an AI assistant that gives you lineup calls, trade reads, and matchup breakdowns. Includes a Chrome extension that recommends draft picks in real time.",
+    stack: "Next.js · Supabase · pgvector · Gemini · Vercel",
+    featured: true,
+    url: "https://blue42.xyz",
+    accentColor: "#1b9cfc",
+    screenshots: [
+      "/screenshots/blue-42/1-blue42-assistant.webp",
+      "/screenshots/blue-42/2-blue42-lineup-v2.webp",
+      "/screenshots/blue-42/3-blue42-matchup-v2.webp",
+      "/screenshots/blue-42/4-blue42-draft-v2.webp",
+    ],
+  },
+  {
+    name: "Catchr",
+    tag: "Chrome Extension · AI",
+    category: "web",
+    description:
+      "Built mid-job-search because I needed it. One click logs any listing (company, role, location, link) straight to Google Sheets. Then added AI: a fit score against your resume, tailored bullet rewrites, and a full interview prep doc, all from the same popup. Published to the Chrome Web Store for private users.",
+    stack: "Manifest V3 · Google Sheets API · Gemini",
+    featured: true,
+    accentColor: "#2C5F4A", // Catchr header green exact
+    screenshots: [
+      "/screenshots/catchr/1-catchr-catch.webp",
+      "/screenshots/catchr/2-catchr-fit.webp",
+      "/screenshots/catchr/3-catchr-tailor.webp",
+      "/screenshots/catchr/4-catchr-prep.webp",
+    ],
+  },
+  {
     name: "Stoke",
     tag: "iOS App · SwiftUI",
     category: "ios",
     description:
       "AI-powered BBQ and smoking companion — tracks cooks, answers pitmaster questions, and learns your setup.",
     stack: "Swift · SwiftData",
-    featured: true,
     accentColor: "#BF4341", // Stoke colorAccent exact
     screenshots: [
       "/screenshots/stoke/1-stoke-home.webp",
@@ -32,6 +64,39 @@ export const projects: Project[] = [
       "/screenshots/stoke/7-stoke-brisket-instructions.webp",
       "/screenshots/stoke/8-stoke-chatbot.webp",
       "/screenshots/stoke/9-stoke-cook-log.webp",
+    ],
+  },
+  {
+    name: "Dungee Podcast",
+    tag: "Website · Next.js",
+    category: "web",
+    description:
+      "My friend had a real podcast and no home for it. Built the Dungee site from scratch: auto-synced to YouTube, a growing episode library, email capture, and a dark editorial design that matches the show's energy.",
+    stack: "Next.js · Tailwind · YouTube API · Vercel",
+    url: "https://dungeepodcast.com",
+    accentColor: "#4CAF4C", // Dungee accent green exact
+    screenshots: [
+      "/screenshots/dungee/1-dungee-hero.webp",
+      "/screenshots/dungee/4-dungee-about.webp",
+      "/screenshots/dungee/2-dungee-latest.webp",
+      "/screenshots/dungee/3-dungee-episodes.webp",
+    ],
+  },
+  {
+    name: "Carro",
+    tag: "iOS App · SwiftUI",
+    category: "ios",
+    description:
+      "Car maintenance tracker with NHTSA and CarAPI integration for real vehicle data and personal service history tracking.",
+    stack: "Swift · SwiftData · NHTSA API",
+    accentColor: "#6D28D9", // Carro Theme.swift light mode primary exact
+    screenshots: [
+      "/screenshots/carro/1-carro-home.webp",
+      "/screenshots/carro/2-carro-home-overdue.webp",
+      "/screenshots/carro/3-carro-my-cars.webp",
+      "/screenshots/carro/4-carro-log-service.webp",
+      "/screenshots/carro/5-carro-service-record.webp",
+      "/screenshots/carro/6-carro-add-reminder.webp",
     ],
   },
   {
@@ -54,56 +119,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "Carro",
-    tag: "iOS App · SwiftUI",
-    category: "ios",
-    description:
-      "Car maintenance tracker with NHTSA and CarAPI integration for real vehicle data and personal service history tracking.",
-    stack: "Swift · SwiftData · NHTSA API",
-    accentColor: "#6D28D9", // Carro Theme.swift light mode primary exact
-    screenshots: [
-      "/screenshots/carro/1-carro-home.webp",
-      "/screenshots/carro/2-carro-home-overdue.webp",
-      "/screenshots/carro/3-carro-my-cars.webp",
-      "/screenshots/carro/4-carro-log-service.webp",
-      "/screenshots/carro/5-carro-service-record.webp",
-      "/screenshots/carro/6-carro-add-reminder.webp",
-    ],
-  },
-  {
-    name: "Fantasy Football League Site",
-    tag: "Website · Next.js",
-    category: "web",
-    description:
-      "Fantasy football league site with standings, stats, and a cinematic dark aesthetic.",
-    stack: "Next.js · Tailwind · Vercel",
-    accentColor: "#6834D4", // 330 Fantasy purple primary exact
-    screenshots: [
-      "/screenshots/fantasy-football-league-site/1-ff-site-hero.webp",
-      "/screenshots/fantasy-football-league-site/2-ff-site-countdown.webp",
-      "/screenshots/fantasy-football-league-site/3-ff-site-stats.webp",
-      "/screenshots/fantasy-football-league-site/4-ff-site-standings.webp",
-      "/screenshots/fantasy-football-league-site/5-ff-site-schedule.webp",
-      "/screenshots/fantasy-football-league-site/6-ff-site-contact.webp",
-    ],
-  },
-  {
-    name: "Catchr",
-    tag: "Chrome Extension",
-    category: "web",
-    description:
-      "Built a Chrome extension mid-job-search to scrape and log job listings directly to Google Sheets. Needed the tool, so I built it.",
-    stack: "Manifest V3 · Google Sheets API",
-    accentColor: "#2C5F4A", // Catchr header green exact
-    screenshots: [
-      "/screenshots/catchr/1-catchr-pop-up.webp",
-      "/screenshots/catchr/2-catchr-linkedin.webp",
-      "/screenshots/catchr/3-catchr-success.webp",
-      "/screenshots/catchr/4-catchr-sheets.webp",
-    ],
-    screenshotPadding: ["12%", undefined, "12%", "12%"],
-  },
-  {
     name: "Tended",
     tag: "iOS App · SwiftUI",
     category: "ios",
@@ -111,7 +126,6 @@ export const projects: Project[] = [
       "Pet care companion app for tracking schedules and routines, with a warm earthy design.",
     stack: "Swift · SwiftData",
     github: "https://github.com/kevinjustinh/tended",
-    featured: true,
     accentColor: "#7A9E7E", // Tended sage green primary exact
     screenshots: [
       "/screenshots/tended/1-tended-home.webp",
