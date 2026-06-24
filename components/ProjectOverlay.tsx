@@ -407,13 +407,14 @@ export default function ProjectOverlay({
             </div>
 
             {/* Links */}
-            {(project.url || project.github) && (
+            {(project.url || project.github || project.chromeStore) && (
               <div
                 style={{
                   borderTop: "0.5px solid var(--color-border)",
                   paddingTop: "1.5rem",
                   marginTop: "1.5rem",
                   display: "flex",
+                  flexWrap: "wrap",
                   alignItems: "center",
                   gap: "0.75rem",
                 }}
@@ -440,6 +441,28 @@ export default function ProjectOverlay({
                     GitHub ↗
                   </a>
                 )}
+                {project.chromeStore && (
+                  <a
+                    href={project.chromeStore}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={linkBtnStyle}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                        "rgba(15,15,15,0.25)";
+                      (e.currentTarget as HTMLAnchorElement).style.color =
+                        "var(--color-accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                        "var(--color-border)";
+                      (e.currentTarget as HTMLAnchorElement).style.color =
+                        "var(--color-ink)";
+                    }}
+                  >
+                    Chrome Web Store ↗
+                  </a>
+                )}
                 {project.url && (
                   <a
                     href={project.url}
@@ -455,7 +478,7 @@ export default function ProjectOverlay({
                         "1";
                     }}
                   >
-                    View live ↗
+                    {project.urlLabel ?? "View live"} ↗
                   </a>
                 )}
               </div>
@@ -582,10 +605,11 @@ export default function ProjectOverlay({
               <p style={metaValueStyle}>{project.stack}</p>
             </div>
 
-            {(project.url || project.github) && (
+            {(project.url || project.github || project.chromeStore) && (
               <div
                 style={{
                   display: "flex",
+                  flexWrap: "wrap",
                   gap: "0.75rem",
                   borderTop: "0.5px solid var(--color-border)",
                   paddingTop: "1rem",
@@ -601,6 +625,16 @@ export default function ProjectOverlay({
                     GitHub ↗
                   </a>
                 )}
+                {project.chromeStore && (
+                  <a
+                    href={project.chromeStore}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={linkBtnStyle}
+                  >
+                    Chrome Web Store ↗
+                  </a>
+                )}
                 {project.url && (
                   <a
                     href={project.url}
@@ -608,7 +642,7 @@ export default function ProjectOverlay({
                     rel="noopener noreferrer"
                     style={linkBtnPrimaryStyle}
                   >
-                    View live ↗
+                    {project.urlLabel ?? "View live"} ↗
                   </a>
                 )}
               </div>

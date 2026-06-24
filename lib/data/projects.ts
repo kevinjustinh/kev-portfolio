@@ -5,7 +5,9 @@ export type Project = {
   description: string;
   stack: string;
   url?: string;
+  urlLabel?: string; // overrides the default "View live" link label, e.g. "Visit Site" for a marketing landing page
   github?: string;
+  chromeStore?: string;
   featured?: boolean;
   accentColor?: string;
   screenshots?: string[]; // paths relative to /public, e.g. ["/screenshots/stoke-1.png"]
@@ -38,6 +40,10 @@ export const projects: Project[] = [
       "Built mid-job-search because I needed it. One click logs any listing (company, role, location, link) straight to Google Sheets. Then added AI: a fit score against your resume, tailored bullet rewrites, and a full interview prep doc, all from the same popup. Published to the Chrome Web Store for private users.",
     stack: "Manifest V3 · Google Sheets API · Gemini",
     featured: true,
+    url: "https://jobcatchr.app",
+    urlLabel: "Visit Site",
+    chromeStore:
+      "https://chromewebstore.google.com/detail/catchr/kleffbpannecinoopgebbdhkfpkjhbia",
     accentColor: "#2C5F4A", // Catchr header green exact
     screenshots: [
       "/screenshots/catchr/1-catchr-catch.webp",
