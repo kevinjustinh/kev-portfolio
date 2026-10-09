@@ -6,6 +6,7 @@ October 9, 2026
 - Source baseline: f3c1246d8d3bace24d31ad04d7273ac3d649121a
 - Status: proposed redesign brief and implementation backlog. No production redesign implemented.
 - Companion: [September technical and portfolio review](ASTRA-FINDINGS-2026-09-17-PORTFOLIO.md).
+- Visual explorations: [nine saved directions and comparison guide](../design/2026-10-09/README.md), including standalone browser previews.
 - Owner request: comprehensive design critique, a modern and personal direction, and fresh-start concepts.
 
 ## Executive recommendation
@@ -271,3 +272,4 @@ Read AGENTS.md and both Astra review documents. Start by comparing the current s
 | Date | Change | Status |
 |---|---|---|
 | 2026-10-09 | Added redesign findings, fresh-start concept briefs, content requirements, and acceptance criteria | Documentation only; implementation pending |
+| 2026-10-09 | Saved nine design concepts, editable fragments, browser previews, and a comparison guide | Design exploration only; production unchanged |
