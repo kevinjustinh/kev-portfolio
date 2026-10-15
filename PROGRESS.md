@@ -1,20 +1,23 @@
 # Portfolio progress
 
-HANDOFF-ANCHOR: 634ca40c970928995b195c486abf2a28404df132
+HANDOFF-ANCHOR: c908728
 
 Health: VERIFIED — local MySpace mockups and interactions, 2026-10-15. Production build and deployment were not part of this design checkpoint.
 
 ## Current checkpoint
 
-Three MySpace-inspired portfolio concepts are in `design-system/previews/myspace-previews.html`. Open directly in a browser; images and font are embedded. See `design-system/previews/myspace-README.md` for design rationale, content sources, verification, and screenshots.
+Six MySpace-inspired portfolio concepts are available in two standalone previews. Open directly in a browser; images and fonts are embedded.
 
-The classic profile is the recommended direction. Alternatives prioritize career stories or a work gallery. All are design explorations; application components remain unchanged. The prior October 9 design explorations remain in `docs/design/2026-10-09/`.
+- `design-system/previews/myspace-previews.html`: Classic profile, Work first, and The scrapbook. See `myspace-README.md` beside it.
+- `design-system/previews/myspace-custom-previews.html`: Sunset Social, Midnight Mixtape, and Internet Garden. See `myspace-custom-README.md` beside it for rationale, verification, and screenshots.
+
+Classic profile is recommended within the original set; Sunset Social is recommended within the more customized set. Midnight Mixtape is the most expressive nostalgic skin. All are design explorations; no final composition has been selected, and application components remain unchanged. The prior October 9 design explorations remain in `docs/design/2026-10-09/`.
 
 This work is on `design/myspace-profile-preview`. Automatic Vercel deployment is disabled for that exact branch through `vercel.json`. The branch is a design checkpoint; do not deploy the redesign without selecting and documenting the final design first.
 
 ## Verification
 
-Read-only design review: APPROVE. Three responsive layouts checked at 375/768/1440px, all 24 project dialogs and career disclosures checked, no broken visible images or unresolved internal anchors. Browser console clean. TypeScript and whitespace checks passed. Full details and limits are in the preview README.
+Both sets received read-only design review: APPROVE. Each set's three layouts were checked at 375/768/1440px, all 24 project entry points and career disclosures checked, no broken visible images or unresolved internal anchors. Custom profiles also passed Enter/Escape and focus-return checks on every Top 8 tile. Browser console clean. The original checkpoint passed TypeScript checks; the custom follow-up changes HTML previews and records only. Full details and limits are in the two preview READMEs.
 
 ## Next
 
