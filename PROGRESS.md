@@ -29,6 +29,14 @@ Kevin's Claude Design "Kevin Profile" (MySpace-style profile) is built as a sepa
 
 Kevin reviews `/profile` locally (`npm run dev`, then localhost:3000/profile). Decide on placeholders and whether this replaces or sits alongside the homepage. Do not deploy from this branch.
 
+## In progress — link previews + window motion (2026-10-21)
+
+Kevin asked for: (1) fix the missing homepage link-preview image, (2) /profile share links whose preview image shows the sharer's skin, (3) Top 8 windows that grow out of the clicked photo. AIM "KevBot" chat skipped (needs AI).
+
+- Preview with 3 options per decision: `design-system/previews/share-previews.html` (screenshots `share-*.png`). Read-only design review: REVISE; fixes applied in the preview. Recommended: Homepage V2 Portrait, Profile V1 Profile box, Motion V1 Morph. WAITING ON KEVIN'S PICKS. Do not build until he chooses.
+- Build notes from review: generate images with `next/og` ImageResponse (flexbox only; bundle a TTF such as DejaVu Sans for the Verdana look). /profile: read `?layout`/`pat`/`theme` in `generateMetadata`, point og:image at an image route; accept only 6-digit hex and known pattern names, else default skin; force black/white text if contrast under 3:1; text never directly on wallpaper; cache by settings; name and photo not visitor-controlled. Motion: View Transitions, set the shared transition name on the clicked tile only and clear on close; image crops (object-fit cover) rather than stretches; frame and overlay fade in. Also change "Kevin has 12 friends" header text from orange to a readable color.
+- Homepage fix ships on `main` (live site). /profile work stays on `design/myspace-profile-preview`.
+
 ## Gaps and ideas (2026-10-21, not started)
 
 Gaps found:
