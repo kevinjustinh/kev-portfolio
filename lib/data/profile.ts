@@ -2,6 +2,7 @@
 // Design source: Claude Design project "Kevin Profile" (2026-10-21).
 
 export type Metric = { value: string; label: string };
+export type ProjectLink = { label: string; url: string };
 
 export type Friend = {
   name: string;
@@ -13,11 +14,11 @@ export type Friend = {
   stack: string;
   metrics?: Metric[]; // present on case studies only
   quote: string;
-  link: string;
+  links?: ProjectLink[];
 };
 
 export type Job = { co: string; role: string; yrs: string };
-export type Bulletin = { date: string; subj: string; friend: number };
+export type Bulletin = { project: string; subj: string; friend: number };
 export type Comment = { friend: number; date: string; text: string };
 export type Badge = {
   id: BadgeId;
@@ -38,9 +39,6 @@ export type BadgeId =
   | "penpal";
 export type DetailRow = { label: string; value: string };
 
-const CASE_STUDIES = "/#case-studies";
-const PROJECTS = "/#projects";
-
 export const RESUME_URL = "/resume.pdf";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/kevinjustin/";
 export const GITHUB_URL = "https://github.com/kevinjustinh";
@@ -60,9 +58,9 @@ export const friends: Friend[] = [
       { value: "4.9/5", label: "CSAT participant satisfaction" },
       { value: "21", label: "Nonprofits across the cohort" },
       { value: "100+", label: "Attendees at program events" },
+      { value: "XFN", label: "Stakeholder alignment across teams" },
     ],
     quote: "remember when u ran my launch and everyone gave it a 4.9?? good times",
-    link: CASE_STUDIES,
   },
   {
     name: "Blue42",
@@ -74,7 +72,7 @@ export const friends: Friend[] = [
       "Built for my fantasy league when I got tired of guessing. Pulls live data from Sleeper and ESPN into an AI assistant that gives you lineup calls, trade reads, and matchup breakdowns. Includes a Chrome extension that recommends draft picks in real time.",
     stack: "Next.js · Supabase · pgvector · Gemini · Vercel",
     quote: "thx for the add!! also start ur RB this week, trust me",
-    link: "https://blue42.xyz",
+    links: [{ label: "Visit site", url: "https://blue42.xyz" }],
   },
   {
     name: "Catchr",
@@ -85,8 +83,11 @@ export const friends: Friend[] = [
     blurb:
       "Built mid-job-search because I needed it. One click logs any listing (company, role, location, link) straight to Google Sheets. Then added AI: a fit score against your resume, tailored bullet rewrites, and a full interview prep doc, all from the same popup. Published to the Chrome Web Store for private users.",
     stack: "Manifest V3 · Google Sheets API · Gemini",
-    quote: "u stayed up til 2am building me lol",
-    link: "https://jobcatchr.app",
+    quote: "u built me mid job search bc u needed me. glad i could help",
+    links: [
+      { label: "Visit site", url: "https://jobcatchr.app" },
+      { label: "Chrome Web Store", url: "https://chromewebstore.google.com/detail/catchr/kleffbpannecinoopgebbdhkfpkjhbia" },
+    ],
   },
   {
     name: "Taking Springboard's ML program NPS from 0 to 100",
@@ -102,7 +103,6 @@ export const friends: Friend[] = [
       { value: "4.82/5", label: "Avg mentor rating" },
     ],
     quote: "0 to 100 in one month?? u were the real MVP",
-    link: CASE_STUDIES,
   },
   {
     name: "Managing Google's developer community at scale",
@@ -117,8 +117,7 @@ export const friends: Friend[] = [
       { value: "520K+", label: "Followers managed across channels" },
       { value: "I/O '22", label: "Story featured at Google I/O keynote" },
     ],
-    quote: "520K followers and u still answered the DMs",
-    link: CASE_STUDIES,
+    quote: "520K followers across twitter n linkedin. no pressure lol",
   },
   {
     name: "Stoke",
@@ -129,8 +128,7 @@ export const friends: Friend[] = [
     blurb:
       "AI-powered BBQ and smoking companion: tracks cooks, answers pitmaster questions, and learns your setup.",
     stack: "Swift · SwiftData",
-    quote: "brisket hit 203. i told u. low n slow",
-    link: PROJECTS,
+    quote: "low n slow. i'll tell u when the brisket's ready",
   },
   {
     name: "Dungee Podcast",
@@ -142,7 +140,7 @@ export const friends: Friend[] = [
       "My friend had a real podcast and no home for it. Built the Dungee site from scratch: auto-synced to YouTube, a growing episode library, email capture, and a dark editorial design that matches the show's energy.",
     stack: "Next.js · Tailwind · YouTube API · Vercel",
     quote: "new ep auto-synced. u never have to touch me again <3",
-    link: "https://dungeepodcast.com",
+    links: [{ label: "Visit site", url: "https://dungeepodcast.com" }],
   },
   {
     name: "Co-founding RecCheck, from idea to funded iOS app",
@@ -155,7 +153,6 @@ export const friends: Friend[] = [
     stack: "Founder · Mobile Product",
     metrics: [{ value: "$25K", label: "Early funding raised" }],
     quote: "got next",
-    link: CASE_STUDIES,
   },
   {
     name: "Carro",
@@ -167,7 +164,6 @@ export const friends: Friend[] = [
       "Car maintenance tracker with NHTSA and CarAPI integration for real vehicle data and personal service history tracking.",
     stack: "Swift · SwiftData · NHTSA API",
     quote: "oil change due in 300 mi. just sayin",
-    link: PROJECTS,
   },
   {
     name: "SF Weekend",
@@ -179,7 +175,6 @@ export const friends: Friend[] = [
       "Cinematic editorial travel itinerary for a San Francisco weekend: scroll-driven animations, an animated video, and Mapbox integration.",
     stack: "Next.js 14 · Mapbox · GSAP · Vercel",
     quote: "karl the fog says hi",
-    link: PROJECTS,
   },
   {
     name: "Tended",
@@ -190,8 +185,8 @@ export const friends: Friend[] = [
     blurb:
       "Pet care companion app for tracking schedules and routines, with a warm earthy design.",
     stack: "Swift · SwiftData",
-    quote: "the dog says thx 4 remembering his meds",
-    link: "https://github.com/kevinjustinh/tended",
+    quote: "every pet routine on schedule so u don't have to remember",
+    links: [{ label: "GitHub", url: "https://github.com/kevinjustinh/tended" }],
   },
   {
     name: "Redesigning mentor onboarding to raise the quality bar",
@@ -206,17 +201,16 @@ export const friends: Friend[] = [
       { value: "E2E", label: "Full audit-to-redesign process" },
       { value: "↓", label: "Reduced early mentor churn" },
     ],
-    quote: "fewer steps, better mentors. we love 2 see it",
-    link: CASE_STUDIES,
+    quote: "smoother onboarding, better mentors. we love 2 see it",
   },
 ];
 
 export const comments: Comment[] = [
-  { friend: 2, date: "Oct 14, 2026 2:07 AM", text: "u stayed up til 2am building me lol. worth it tho" },
+  { friend: 2, date: "Oct 14, 2026 9:07 AM", text: "one click and that job is in ur google sheet. ur welcome" },
   { friend: 1, date: "Oct 12, 2026 9:41 PM", text: "thx for the add!! also start ur RB this week, trust me" },
   { friend: 3, date: "Oct 11, 2026 3:22 PM", text: "0 to 100 in one month?? u were the real MVP" },
-  { friend: 5, date: "Oct 10, 2026 6:15 AM", text: "brisket hit 203. i told u. low n slow" },
-  { friend: 10, date: "Oct 8, 2026 8:02 AM", text: "the dog says thx 4 remembering his meds" },
+  { friend: 5, date: "Oct 10, 2026 6:15 AM", text: "low n slow. i'll tell u when the brisket's ready" },
+  { friend: 10, date: "Oct 8, 2026 8:02 AM", text: "every pet routine on schedule so u don't have to remember" },
   { friend: 6, date: "Oct 5, 2026 11:30 AM", text: "new ep auto-synced. u never have to touch me again <3" },
   { friend: 8, date: "Oct 1, 2026 5:48 PM", text: "oil change due in 300 mi. just sayin" },
 ];
@@ -229,10 +223,10 @@ export const jobs: Job[] = [
 ];
 
 export const bulletins: Bulletin[] = [
-  { date: "Oct 18", subj: "Catchr now writes a full interview prep doc from any job post", friend: 2 },
-  { date: "Oct 9", subj: "Blue42 draft-pick extension survived its first draft season", friend: 1 },
-  { date: "Sep 27", subj: "Stoke is learning smoker setups. Brisket testing ongoing", friend: 5 },
-  { date: "Sep 12", subj: "Dungee site now auto-syncs every new episode from YouTube", friend: 6 },
+  { project: "Catchr", subj: "Catchr writes a full interview prep doc from any job post", friend: 2 },
+  { project: "Blue42", subj: "Blue42 has a Chrome extension that recommends draft picks in real time", friend: 1 },
+  { project: "Stoke", subj: "Stoke learns your smoker setup and answers pitmaster questions", friend: 5 },
+  { project: "Dungee", subj: "The Dungee site auto-syncs every new episode from YouTube", friend: 6 },
 ];
 
 export const badges: Badge[] = [
@@ -252,6 +246,7 @@ export const profileIntro = {
   roles: "Program Ops · Community · Builder",
   location: ["SF Bay Area", "Remote OK"],
   mood: "shipping :)",
+  summary: "A decade building communities and programs at Google, Springboard, and from scratch.",
   url: "https://www.kevinjhernandez.com/",
 };
 
@@ -276,7 +271,7 @@ export const blurbs = {
   about:
     "I've spent a decade making developer and startup communities run, launching accelerators, managing creator programs, and telling stories to a 520K+ audience. Former founder. Currently vibe coding on the side and figuring out what to build next. Based in the SF Bay Area and open to community, program ops, and DevRel roles.",
   meet:
-    "You! Specifically, if you're hiring a Community Manager, Program Ops lead, or DevRel person. I'll run your launch, keep your community happy, and probably build a little tool for it along the way. I show up curious, stay until it's done, and somehow people remember me too. Bonus points if you have strong opinions about brisket or your fantasy lineup.",
+    "You! Especially if you're hiring a Community Manager, Program Ops lead, or DevRel person. I'd love to run your launch, keep your community happy, and probably build a little tool to help out. I show up curious, stay until it's done, and somehow people remember me too. Bonus points if you have strong opinions about brisket or your fantasy lineup.",
 };
 
 export const profileSong = {

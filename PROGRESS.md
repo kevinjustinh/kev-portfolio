@@ -1,8 +1,16 @@
 # Portfolio progress
 
-HANDOFF-ANCHOR: c9a60a3
+HANDOFF-ANCHOR: a23ef66
 
-Health: VERIFIED — /profile test page, 2026-10-21 (after removals). TypeScript and lint clean on new files; screenshots at 375/768/1440px; no console errors; no horizontal scroll. Contact form not submitted during testing (it sends a real email). Production build not run.
+Health: VERIFIED (2026-10-21, content-parity and copy pass). TypeScript and lint clean; /profile screenshotted at 375/768/1440px (`design-system/previews/screenshots/profile/parity-*.png`); blog box renders; no em dashes; no console errors; no horizontal scroll. Production build not run.
+
+### Pass: homepage parity + writing guide (2026-10-21)
+- Added from the homepage: "Kevin's Latest Blog Entries" box (all 7 published articles, reusing `publishedArticles` from `lib/data/caseStudies.ts`, nav link "Blog"); the GenAI accelerator's fourth metric (XFN); the hero summary line in the profile box; Catchr's Chrome Web Store link.
+- Project windows now show real outbound links only (`links` array). Case studies, Stoke, Carro and SF Weekend have none, as on the homepage.
+- Copy pass per Kevin's writing guide: removed invented details (2am build, dog meds, answering DMs, "fewer steps", dated bulletins). Bulletins now name the project and describe what it actually does. Lightly reworded "Who I'd like to meet" and removed "along the way". No em dashes remain.
+- Open questions for Kevin: Catchr is "for private users" on the site, but the writing guide says it's publicly released. The "I/O '22 keynote" metric is flagged in the guide as needing confirmation.
+
+Previous health (after removals, a23ef66): VERIFIED. TypeScript and lint clean; screenshots at 375/768/1440px; no console errors; no horizontal scroll.
 
 ## Current checkpoint — /profile test page (2026-10-21)
 

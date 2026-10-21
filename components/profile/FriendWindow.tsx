@@ -8,7 +8,6 @@ import type { Friend } from "@/lib/data/profile";
 type Props = { look: Look; friend: Friend; onClose: () => void; onPrev: () => void; onNext: () => void };
 
 export default function FriendWindow({ look, friend, onClose, onPrev, onNext }: Props) {
-  const external = friend.link.startsWith("http");
   return (
     <RetroWindow look={look} title={`${friend.screen}'s Profile`} onClose={onClose} width={560}>
       <div style={{ padding: 12, display: "flex", flexDirection: "column", gap: 10, fontFamily: "Verdana,sans-serif" }}>
@@ -39,9 +38,11 @@ export default function FriendWindow({ look, friend, onClose, onPrev, onNext }: 
         <div style={{ display: "flex", gap: 8, justifyContent: "flex-end", flexWrap: "wrap" }}>
           <button onClick={onPrev} className="kjh-press" style={winButton}>&lt; Prev friend</button>
           <button onClick={onNext} className="kjh-press" style={winButton}>Next friend &gt;</button>
-          <a href={friend.link} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="kjh-press" style={{ ...winButton, fontWeight: "bold" }}>
-            View project
-          </a>
+          {friend.links?.map((l) => (
+            <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="kjh-press" style={{ ...winButton, fontWeight: "bold" }}>
+              {l.label}
+            </a>
+          ))}
         </div>
       </div>
     </RetroWindow>

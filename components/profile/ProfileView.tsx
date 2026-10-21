@@ -132,7 +132,7 @@ export default function ProfileView() {
   const look = computeLook(T, 0, font);
   const chaos = theme !== "classic";
 
-  // Cursor sparkle trail — never with reduced motion.
+  // Cursor sparkle trail, never with reduced motion.
   const sparkle = trail === "none" ? null : TRAIL_SET[trail] ?? T.spark ?? null;
   const sparkleOn = !!sparkle;
   const sparkleRef = useRef(sparkle);
@@ -202,6 +202,7 @@ export default function ProfileView() {
                 <a href="#about" style={navLink}>About</a>
                 <a href="#top8" style={navLink}>Top 8</a>
                 <a href="#work" style={navLink}>Work</a>
+                <a href="#blog" style={navLink}>Blog</a>
                 <a href="#comments" style={navLink}>Comments</a>
                 <a href={RESUME_URL} onClick={(e) => { e.preventDefault(); openResume(); }} style={navLink}>Resume</a>
                 <a href="#contact" style={navLink}>Contact</a>

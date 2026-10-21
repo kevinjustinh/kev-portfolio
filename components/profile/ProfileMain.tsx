@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import RetroBox from "./RetroBox";
 import { frame, type Look } from "@/lib/profile/look";
 import { blurbs, bulletins, comments, friends, jobs, profileSong, type Friend } from "@/lib/data/profile";
+import { publishedArticles } from "@/lib/data/caseStudies";
 
 export type RankedFriend = { friend: Friend; index: number };
 
@@ -66,11 +67,30 @@ export default function ProfileMain(p: Props) {
         <div style={{ padding: 3, display: "grid", gridTemplateColumns: "auto minmax(0,1fr)", gap: 3, fontSize: 11 }}>
           {bulletins.map((b) => (
             <div key={b.subj} style={{ display: "contents" }}>
-              <div style={{ ...cell, whiteSpace: "nowrap" }}>{b.date}</div>
+              <div style={{ ...cell, whiteSpace: "nowrap" }}>{b.project}</div>
               <a href="#" onClick={pd(() => p.onBulletin(b.friend))} style={{ ...cell, color: t.link, fontWeight: "bold" }}>{b.subj}</a>
             </div>
           ))}
         </div>
+      </RetroBox>
+
+      <RetroBox
+        look={look}
+        id="blog"
+        variant="label"
+        title={<span style={{ display: "flex", justifyContent: "space-between", gap: 8 }}><span>Kevin&apos;s Latest Blog Entries</span><span style={{ fontWeight: "normal", fontSize: 11, color: t.labelText }}>published work</span></span>}
+      >
+        <ul style={{ listStyle: "none", margin: 0, padding: 3, display: "grid", gridTemplateColumns: "auto minmax(0,1fr)", gap: 3, fontSize: 11 }}>
+          {publishedArticles.map((a) => (
+            <li key={a.url} style={{ display: "contents" }}>
+              <span style={{ ...cell, whiteSpace: "nowrap" }}>{a.date}</span>
+              <span style={cell}>
+                <a href={a.url} target="_blank" rel="noopener noreferrer" style={{ color: t.link, fontWeight: "bold" }}>{a.title}</a>
+                <span style={{ display: "block" }}>{a.publication}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
       </RetroBox>
 
       <RetroBox look={look} variant="label" title="Kevin's Blurbs" bodyStyle={{ padding: 10, display: "flex", flexDirection: "column", gap: 10 }}>

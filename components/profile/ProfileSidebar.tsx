@@ -57,6 +57,7 @@ export default function ProfileSidebar({ look, nameNode, badges, onResume, onCon
           <div style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 11, minWidth: 0 }}>
             <div style={{ fontStyle: "italic" }}>{profileIntro.quote}</div>
             <div>{profileIntro.roles}</div>
+            <div>{profileIntro.summary}</div>
             <div>{profileIntro.location[0]}<br />{profileIntro.location[1]}</div>
             <div style={{ display: "flex", alignItems: "center", gap: 5, fontWeight: "bold", color: t.accent }}>
               <span style={{ width: 9, height: 9, borderRadius: "50%", background: "#33cc33", border: "1px solid #1a801a" }} />
