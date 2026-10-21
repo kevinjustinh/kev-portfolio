@@ -37,7 +37,7 @@ export const projects: Project[] = [
     tag: "Chrome Extension · AI",
     category: "web",
     description:
-      "Built mid-job-search because I needed it. One click logs any listing (company, role, location, link) straight to Google Sheets. Then added AI: a fit score against your resume, tailored bullet rewrites, and a full interview prep doc, all from the same popup. Published to the Chrome Web Store for private users.",
+      "Built mid-job-search because I needed it. One click logs any listing (company, role, location, link) straight to Google Sheets. Then added AI: a fit score against your resume, tailored bullet rewrites, and a full interview prep doc, all from the same popup. Free and publicly released at jobcatchr.app.",
     stack: "Manifest V3 · Google Sheets API · Gemini",
     featured: true,
     url: "https://jobcatchr.app",

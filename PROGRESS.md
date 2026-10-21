@@ -8,7 +8,8 @@ Health: VERIFIED (2026-10-21, content-parity and copy pass). TypeScript and lint
 - Added from the homepage: "Kevin's Latest Blog Entries" box (all 7 published articles, reusing `publishedArticles` from `lib/data/caseStudies.ts`, nav link "Blog"); the GenAI accelerator's fourth metric (XFN); the hero summary line in the profile box; Catchr's Chrome Web Store link.
 - Project windows now show real outbound links only (`links` array). Case studies, Stoke, Carro and SF Weekend have none, as on the homepage.
 - Copy pass per Kevin's writing guide: removed invented details (2am build, dog meds, answering DMs, "fewer steps", dated bulletins). Bulletins now name the project and describe what it actually does. Lightly reworded "Who I'd like to meet" and removed "along the way". No em dashes remain.
-- Open questions for Kevin: Catchr is "for private users" on the site, but the writing guide says it's publicly released. The "I/O '22 keynote" metric is flagged in the guide as needing confirmation.
+- Catchr (2026-10-21): Kevin confirmed it is publicly released. Description on homepage and /profile now ends "Free and publicly released at jobcatchr.app." (was "for private users").
+- Open question for Kevin: is the "I/O '22: Story featured at Google I/O keynote" metric accurate? It sits on the Google developer community case study (homepage and /profile), not the accelerator.
 
 Previous health (after removals, a23ef66): VERIFIED. TypeScript and lint clean; screenshots at 375/768/1440px; no console errors; no horizontal scroll.
 
