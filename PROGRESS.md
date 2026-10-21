@@ -1,18 +1,19 @@
 # Portfolio progress
 
-HANDOFF-ANCHOR: a8109e8
+HANDOFF-ANCHOR: c9a60a3
 
-Health: VERIFIED — /profile test page, 2026-10-21. TypeScript and lint clean on new files; screenshots at 375/768/1440px; no console errors; no horizontal scroll. Contact form not submitted during testing (it sends a real email). Production build not run.
+Health: VERIFIED — /profile test page, 2026-10-21 (after removals). TypeScript and lint clean on new files; screenshots at 375/768/1440px; no console errors; no horizontal scroll. Contact form not submitted during testing (it sends a real email). Production build not run.
 
 ## Current checkpoint — /profile test page (2026-10-21)
 
 Kevin's Claude Design "Kevin Profile" (MySpace-style profile) is built as a separate route at `/profile`. The homepage is unchanged and does not link to it. The route is marked noindex.
 
 - Route: `app/profile/` (page + scoped CSS). Components: `components/profile/`. Content: `lib/data/profile.ts`. Themes and slider maths: `lib/profile/`.
-- Features ported: 16 layouts plus custom colors and share link, cursor trail, 2006→2026 slider, Recruiter mode (also `?recruiter=1`), draggable Top 8 (Alt+arrow keys also reorder), badges saved in the visitor's browser, résumé viewer, project windows.
-- Changes from the design, after read-only design review (REVISE): Recruiter mode link added to the top bar; message form uses the existing contact email action with sending and error states and a hidden spam trap; reduced-motion users get no trail, marquee or glitter; windows trap focus and return it on close; fixed a design bug where picking a custom color reset other settings; local screenshots replace remote image links.
+- Features: 16 layouts plus custom colors and share link, cursor trail, Top 8 (fixed order), 8 badges saved in the visitor's browser, résumé viewer, project windows.
+- Removed at Kevin's request (2026-10-21), "for now": the 2006→2026 slider, Recruiter mode, and Top 8 reordering, plus their three badges. Full versions are in commit c9a60a3 (`components/profile/RecruiterView.tsx`, slider pill and drag code in `ProfileView.tsx` / `ProfileMain.tsx`). `lib/profile/look.ts` still supports the slider; the page passes era 0.
+- Changes from the design, after read-only design review (REVISE): message form uses the existing contact email action with sending and error states and a hidden spam trap; reduced-motion users get no trail, marquee or glitter; windows trap focus and return it on close; fixed a design bug where picking a custom color reset other settings; local screenshots replace remote image links.
 - Still placeholder from the design: profile song, and Music / Movies / Heroes interests.
-- Not done from the review: contrast check of all 16 layouts; touch-friendly reordering for Top 8.
+- Not done from the review: contrast check of all 16 layouts.
 - Screenshots: `design-system/previews/screenshots/profile/`.
 
 ## Next

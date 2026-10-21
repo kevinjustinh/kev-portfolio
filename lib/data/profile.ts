@@ -30,12 +30,9 @@ export type Badge = {
 export type BadgeId =
   | "collector"
   | "completionist"
-  | "tastemaker"
   | "decorator"
   | "fashionista"
   | "diy"
-  | "traveler"
-  | "business"
   | "paper"
   | "reader"
   | "penpal";
@@ -241,22 +238,12 @@ export const bulletins: Bulletin[] = [
 export const badges: Badge[] = [
   { id: "collector", text: "Top 8 Fan", hint: "Open every friend in the Top 8", desc: "You met all of my Top 8.", bg: "#ff33cc", fg: "#ffff00" },
   { id: "completionist", text: "Completionist", hint: "Open all 12 friends", desc: "Every single friend. Respect.", bg: "#000000", fg: "#33ff33" },
-  { id: "tastemaker", text: "Tastemaker", hint: "Rearrange the Top 8", desc: "Your Top 8, your rules.", bg: "#ffcc00", fg: "#cc0000" },
   { id: "decorator", text: "Decorator", hint: "Try 5 different layouts", desc: "Five layouts tried on.", bg: "#66ffff", fg: "#003399" },
   { id: "fashionista", text: "Fashionista", hint: "Try every layout", desc: "You tried on the whole closet.", bg: "#663399", fg: "#ffd76a" },
   { id: "diy", text: "DIY Designer", hint: "Build your own layout and copy the link", desc: "Custom layout shared.", bg: "#ff6600", fg: "#ffffff" },
-  { id: "traveler", text: "Time Traveler", hint: "Slide all the way to 2026", desc: "Welcome to the future.", bg: "#151515", fg: "#ffffff" },
-  { id: "business", text: "All Business", hint: "Open recruiter mode", desc: "Strictly professional now.", bg: "#ffffff", fg: "#151515" },
   { id: "paper", text: "Paper Trail", hint: "Open the résumé", desc: "Résumé acquired.", bg: "#3399ff", fg: "#ffffff" },
   { id: "reader", text: "Bulletin Reader", hint: "Open a bulletin", desc: "Caught up on the bulletins.", bg: "#33cc33", fg: "#003300" },
   { id: "penpal", text: "Pen Pal", hint: "Send Kevin a message", desc: "Message sent. thx for the add!", bg: "#ff99cc", fg: "#990033" },
-];
-
-export const results: Metric[] = [
-  { value: "4.9/5", label: "CSAT, Google.org GenAI Accelerator" },
-  { value: "520K+", label: "Developer audience managed" },
-  { value: "0→100", label: "NPS turnaround in one month" },
-  { value: "$25K", label: "Raised as a founder" },
 ];
 
 export const profileIntro = {
@@ -290,12 +277,6 @@ export const blurbs = {
     "I've spent a decade making developer and startup communities run, launching accelerators, managing creator programs, and telling stories to a 520K+ audience. Former founder. Currently vibe coding on the side and figuring out what to build next. Based in the SF Bay Area and open to community, program ops, and DevRel roles.",
   meet:
     "You! Specifically, if you're hiring a Community Manager, Program Ops lead, or DevRel person. I'll run your launch, keep your community happy, and probably build a little tool for it along the way. I show up curious, stay until it's done, and somehow people remember me too. Bonus points if you have strong opinions about brisket or your fantasy lineup.",
-};
-
-export const recruiterIntro = {
-  status: "Open to work · SF Bay Area or remote · full-time or contract",
-  headline: "Community, Program Ops & DevRel.",
-  body: "I've spent a decade making developer and startup communities run: launching accelerators, managing creator programs, and telling stories to a 520K+ audience. Former founder.",
 };
 
 export const profileSong = {

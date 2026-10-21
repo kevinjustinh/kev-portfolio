@@ -10,20 +10,11 @@ type Props = {
   look: Look;
   shown: RankedFriend[];
   showAll: boolean;
-  customOrder: boolean;
-  drag: number | null;
-  over: number | null;
   playing: boolean;
   onTogglePlay: () => void;
   onOpenFriend: (index: number) => void;
   onBulletin: (index: number) => void;
   onToggleAll: () => void;
-  onResetOrder: () => void;
-  onDragStart: (pos: number) => void;
-  onDragOver: (pos: number) => void;
-  onDrop: (pos: number) => void;
-  onDragEnd: () => void;
-  onMove: (from: number, to: number) => void;
 };
 
 const stripes = (size: number) => `repeating-linear-gradient(45deg,#dfe8f5 0 ${size}px,#cbd8ec ${size}px ${size * 2}px)`;
@@ -94,35 +85,18 @@ export default function ProfileMain(p: Props) {
       </RetroBox>
 
       <RetroBox look={look} id="top8" variant="label" title="Kevin's Friend Space" bodyStyle={{ padding: 10 }}>
-        <div style={{ fontWeight: "bold", marginBottom: 8 }}>
+        <div style={{ fontWeight: "bold", marginBottom: 10 }}>
           Kevin has <span style={{ color: t.accent }}>{friends.length}</span> friends. Click one for the full story.
-        </div>
-        <div style={{ fontSize: 11, margin: "-4px 0 10px", display: "flex", justifyContent: "space-between", gap: 8, flexWrap: "wrap" }}>
-          <span>Drag friends around to rank your own Top 8.</span>
-          {p.customOrder && <a href="#top8" onClick={pd(p.onResetOrder)} className="kjh-hit" style={{ color: t.link, fontWeight: "bold" }}>Reset to Kevin&apos;s order</a>}
         </div>
         <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(92px,1fr))", gap: "12px 8px" }}>
           {p.shown.map(({ friend, index }, pos) => (
             <li key={index} style={{ display: "flex", justifyContent: "center" }}>
               <button
                 onClick={() => p.onOpenFriend(index)}
-                onKeyDown={(e) => {
-                  // Alt + arrow keys reorder without dragging
-                  if (!e.altKey) return;
-                  if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); p.onMove(pos, pos - 1); }
-                  if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); p.onMove(pos, pos + 1); }
-                }}
                 aria-label={`#${pos + 1} ${friend.screen}: ${friend.name}`}
-                draggable
-                onDragStart={(e) => { e.dataTransfer.effectAllowed = "move"; e.dataTransfer.setData("text/plain", String(pos)); p.onDragStart(pos); }}
-                onDragOver={(e) => { e.preventDefault(); p.onDragOver(pos); }}
-                onDrop={(e) => { e.preventDefault(); p.onDrop(pos); }}
-                onDragEnd={p.onDragEnd}
                 className="kjh-fade"
                 style={{
-                  all: "unset", cursor: "grab", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, textAlign: "center", position: "relative", padding: 3,
-                  opacity: p.drag === pos ? 0.35 : 1,
-                  outline: p.over === pos && p.drag !== pos ? `2px dashed ${t.accent}` : undefined, outlineOffset: 2,
+                  all: "unset", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 4, textAlign: "center", position: "relative", padding: 3,
                 }}
               >
                 <span aria-hidden style={{ position: "absolute", top: 18, left: 0, zIndex: 1, minWidth: 18, height: 18, padding: "0 3px", boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center", background: t.accent, color: t.box, font: "bold 10px Verdana,sans-serif", border: `1px solid ${t.box}` }}>{pos + 1}</span>

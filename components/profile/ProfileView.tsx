@@ -8,15 +8,14 @@ import FriendWindow from "./FriendWindow";
 import ResumeWindow from "./ResumeWindow";
 import ContactWindow from "./ContactWindow";
 import LayoutEditor from "./LayoutEditor";
-import RecruiterView from "./RecruiterView";
-import { computeLook, MODERN_FONT } from "@/lib/profile/look";
+import { computeLook } from "@/lib/profile/look";
 import {
   CUSTOM_FIELDS, DEFAULT_CUSTOM, FONT_CSS, PATTERNS, THEMES, THEME_ORDER, TRAIL_SET,
   buildCustom, isThemeKey, type CustomColors, type Theme, type PatternKey, type ThemeKey,
 } from "@/lib/profile/themes";
 import { GITHUB_URL, LINKEDIN_URL, RESUME_URL, badges as BADGES, friends, type Badge, type BadgeId } from "@/lib/data/profile";
 
-// Per-visitor progress (badges, Top 8 order). Convenience only: losing it is harmless.
+// Per-visitor progress (badges). Convenience only: losing it is harmless.
 const store = {
   get<T>(key: string, fallback: T): T {
     try { const v = JSON.parse(localStorage.getItem(key) ?? "null"); return v ?? fallback; } catch { return fallback; }
@@ -44,15 +43,10 @@ export default function ProfileView() {
   const [font, setFont] = useState("theme");
   const [trail, setTrail] = useState("theme");
   const [flip, setFlip] = useState(false);
-  const [era, setEra] = useState(0);
-  const [recruiter, setRecruiter] = useState(false);
   const [win, setWin] = useState<Window>(null);
   const [copied, setCopied] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [showAll, setShowAll] = useState(false);
-  const [order, setOrder] = useState<number[] | null>(null);
-  const [drag, setDrag] = useState<number | null>(null);
-  const [over, setOver] = useState<number | null>(null);
   const [earned, setEarned] = useState<BadgeId[]>([]);
   const [seen, setSeen] = useState<number[]>([]);
   const [tried, setTried] = useState<string[]>([]);
@@ -63,14 +57,14 @@ export default function ProfileView() {
 
   // Restore saved progress and any shared layout from the URL (client only).
   useEffect(() => {
-    const saved = store.get<BadgeId[]>("kjh_badges", []);
+    const known = new Set<string>(BADGES.map((b) => b.id));
+    const saved = store.get<BadgeId[]>("kjh_badges", []).filter((id) => known.has(id));
     earnedRef.current = saved;
     // Browser storage and the URL only exist after hydration, so this must run in an effect.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setEarned(saved);
     setSeen(store.get("kjh_seen", []));
     setTried(store.get("kjh_tried", []));
-    setOrder(store.get<number[] | null>("kjh_order", null));
     setOrigin(location.origin + location.pathname);
 
     const q = new URLSearchParams(location.search);
@@ -84,7 +78,6 @@ export default function ProfileView() {
     if (tr && (TRAIL_SET[tr] || tr === "none")) setTrail(tr);
     if (pat && PATTERNS.some(([v]) => v === pat)) setPattern(pat as PatternKey);
     if (q.get("flip") === "1") setFlip(true);
-    if (q.get("recruiter") === "1") setRecruiter(true);
   }, []);
 
   const award = useCallback((id: BadgeId) => {
@@ -100,12 +93,10 @@ export default function ProfileView() {
     toastTimer.current = setTimeout(() => setToast(null), 3600);
   }, []);
 
-  const ranking = order ?? friends.map((_, i) => i);
-
   const seeFriend = (i: number) => {
     const nextSeen = seen.includes(i) ? seen : [...seen, i];
     if (nextSeen !== seen) { store.set("kjh_seen", nextSeen); setSeen(nextSeen); }
-    if (ranking.slice(0, 8).every((j) => nextSeen.includes(j))) award("collector");
+    if (friends.slice(0, 8).every((_, j) => nextSeen.includes(j))) award("collector");
     if (nextSeen.length >= friends.length) award("completionist");
   };
 
@@ -129,21 +120,6 @@ export default function ProfileView() {
     if (THEME_ORDER.every((o) => nextTried.includes(o))) award("fashionista");
   };
 
-  const reorder = (from: number, to: number) => {
-    if (to < 0 || to >= ranking.length || from === to) return;
-    const next = [...ranking];
-    const [moved] = next.splice(from, 1);
-    next.splice(to, 0, moved);
-    store.set("kjh_order", next);
-    transition(() => setOrder(next));
-    award("tastemaker");
-  };
-
-  const toggleRecruiter = () => {
-    if (!recruiter) award("business");
-    transition(() => { setRecruiter((r) => !r); setWin(null); });
-  };
-
   // Escape closes any open window.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setWin(null); };
@@ -152,12 +128,13 @@ export default function ProfileView() {
   }, []);
 
   const T: Theme = theme === "custom" ? buildCustom(custom, pattern) : THEMES[theme];
-  const look = computeLook(T, era, font);
-  const chaos = theme !== "classic" && era < 50;
+  // The 2006→2026 slider is removed for now, so the page always renders the 2006 end.
+  const look = computeLook(T, 0, font);
+  const chaos = theme !== "classic";
 
-  // Cursor sparkle trail — retro half of the slider only, never with reduced motion.
+  // Cursor sparkle trail — never with reduced motion.
   const sparkle = trail === "none" ? null : TRAIL_SET[trail] ?? T.spark ?? null;
-  const sparkleOn = !!sparkle && era < 50 && !recruiter;
+  const sparkleOn = !!sparkle;
   const sparkleRef = useRef(sparkle);
   useEffect(() => { sparkleRef.current = sparkle; });
   useEffect(() => {
@@ -185,7 +162,7 @@ export default function ProfileView() {
 
   const shareUrl = `${origin}?layout=${CUSTOM_FIELDS.map(([k]) => custom[k].slice(1)).join(",")}&pat=${pattern}${font !== "theme" ? "&font=" + font : ""}${trail !== "theme" ? "&trail=" + trail : ""}${flip ? "&flip=1" : ""}`;
 
-  const shown: RankedFriend[] = ranking.map((index) => ({ friend: friends[index], index }));
+  const shown: RankedFriend[] = friends.map((friend, index) => ({ friend, index }));
   const { t } = look;
   const topLink: CSSProperties = { color: "#fff" };
   const navLink: CSSProperties = { color: "#fff", padding: "4px 0" };
@@ -198,9 +175,9 @@ export default function ProfileView() {
     <div
       className="kjh-root"
       data-era={look.late ? "modern" : "retro"}
-      style={{ position: "relative", minHeight: "100vh", fontSize: look.fs, lineHeight: 1.45, color: "#000", fontFamily: look.font, background: look.pageBg, paddingBottom: 96 }}
+      style={{ position: "relative", minHeight: "100vh", fontSize: look.fs, lineHeight: 1.45, color: "#000", fontFamily: look.font, background: look.pageBg, paddingBottom: 80 }}
     >
-      <div aria-hidden style={{ position: "fixed", inset: 0, zIndex: 0, ...T.wall, opacity: 1 - era / 100 }} />
+      <div aria-hidden style={{ position: "fixed", inset: 0, zIndex: 0, ...T.wall }} />
       <div style={{ position: "relative", zIndex: 1 }}>
         <header>
           <div style={{ background: look.bar1 }}>
@@ -214,8 +191,7 @@ export default function ProfileView() {
               <nav aria-label="Elsewhere" style={{ display: "flex", gap: 10, fontSize: 11, color: "#c3d9ff", alignItems: "center", flexWrap: "wrap" }}>
                 <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="kjh-hit" style={topLink}>Resume</a><span aria-hidden>|</span>
                 <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="kjh-hit" style={topLink}>LinkedIn</a><span aria-hidden>|</span>
-                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="kjh-hit" style={topLink}>GitHub</a><span aria-hidden>|</span>
-                <a href="?recruiter=1" onClick={(e) => { e.preventDefault(); toggleRecruiter(); }} className="kjh-hit" style={{ ...topLink, fontWeight: "bold" }}>Recruiter mode →</a>
+                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="kjh-hit" style={topLink}>GitHub</a>
               </nav>
             </div>
           </div>
@@ -266,20 +242,11 @@ export default function ProfileView() {
             look={look}
             shown={showAll ? shown : shown.slice(0, 8)}
             showAll={showAll}
-            customOrder={!!order}
-            drag={drag}
-            over={over}
             playing={playing}
             onTogglePlay={() => setPlaying((v) => !v)}
             onOpenFriend={openFriend}
             onBulletin={(i) => { award("reader"); openFriend(i); }}
             onToggleAll={() => setShowAll((v) => !v)}
-            onResetOrder={() => { store.set("kjh_order", null); transition(() => setOrder(null)); }}
-            onDragStart={setDrag}
-            onDragOver={(pos) => { if (over !== pos) setOver(pos); }}
-            onDrop={(pos) => { if (drag !== null) reorder(drag, pos); setDrag(null); setOver(null); }}
-            onDragEnd={() => { setDrag(null); setOver(null); }}
-            onMove={reorder}
           />
         </main>
 
@@ -287,8 +254,6 @@ export default function ProfileView() {
           © 2026 Kevin Hernandez · <a href="#about" className="kjh-hit" style={{ color: t.link }}>About</a> · <a href="#top8" className="kjh-hit" style={{ color: t.link }}>Top 8</a> · <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="kjh-hit" style={{ color: t.link }}>Resume</a> · <a href="#contact" className="kjh-hit" style={{ color: t.link }}>Contact</a>
         </footer>
       </div>
-
-      {recruiter && <RecruiterView onBack={toggleRecruiter} onResume={openResume} onContact={openContact} onOpenFriend={openFriend} />}
 
       {win?.kind === "friend" && (
         <FriendWindow look={look} friend={friends[win.index]} onClose={close} onPrev={() => openFriend(win.index - 1)} onNext={() => openFriend(win.index + 1)} />
@@ -317,7 +282,7 @@ export default function ProfileView() {
         />
       )}
 
-      <div role="status" aria-live="polite" style={{ position: "fixed", right: 16, bottom: "calc(84px + env(safe-area-inset-bottom))", zIndex: 70, width: 260, maxWidth: "calc(100vw - 32px)", pointerEvents: "none" }}>
+      <div role="status" aria-live="polite" style={{ position: "fixed", right: 16, bottom: "calc(16px + env(safe-area-inset-bottom))", zIndex: 70, width: 260, maxWidth: "calc(100vw - 32px)", pointerEvents: "none" }}>
         {toast && (
           <div style={{ background: look.winBg, border: look.winBorder, boxShadow: look.winShadow, borderRadius: look.r2, overflow: "hidden", viewTransitionName: "kjh-toast" }}>
             <div style={{ background: look.titleBg, color: look.titleText, fontWeight: "bold", fontSize: 11, padding: look.titlePad }}>★ Achievement unlocked!</div>
@@ -329,25 +294,6 @@ export default function ProfileView() {
         )}
       </div>
 
-      <div style={{ position: "fixed", left: "50%", bottom: "calc(16px + env(safe-area-inset-bottom))", transform: "translateX(-50%)", zIndex: 48, display: "flex", alignItems: "center", gap: 12, padding: "8px 8px 8px 18px", borderRadius: 999, background: "rgba(18,18,18,.86)", backdropFilter: "blur(14px)", color: "#fff", font: `500 12px ${MODERN_FONT}`, boxShadow: "0 10px 30px rgba(0,0,0,.25)", maxWidth: "calc(100vw - 24px)", boxSizing: "border-box" }}>
-        <span style={{ opacity: 0.8 }}>2006</span>
-        <input
-          type="range"
-          min={0}
-          max={100}
-          value={era}
-          onChange={(e) => { const v = +e.target.value; setEra(v); if (v >= 98) award("traveler"); }}
-          aria-label="Slide from 2006 to 2026 styling"
-          style={{ width: 140, minWidth: 0, flexShrink: 1, cursor: "pointer" }}
-        />
-        <span style={{ opacity: 0.8 }}>2026</span>
-        <button
-          onClick={toggleRecruiter}
-          style={{ font: `600 12px ${MODERN_FONT}`, padding: "8px 14px", minHeight: 36, borderRadius: 999, border: 0, background: "#fff", color: "#121212", cursor: "pointer", whiteSpace: "nowrap" }}
-        >
-          {recruiter ? "Fun mode" : "Recruiter mode"}
-        </button>
-      </div>
     </div>
   );
 }
