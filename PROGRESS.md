@@ -9,7 +9,7 @@ Health: VERIFIED (2026-10-21, content-parity and copy pass). TypeScript and lint
 - Project windows now show real outbound links only (`links` array). Case studies, Stoke, Carro and SF Weekend have none, as on the homepage.
 - Copy pass per Kevin's writing guide: removed invented details (2am build, dog meds, answering DMs, "fewer steps", dated bulletins). Bulletins now name the project and describe what it actually does. Lightly reworded "Who I'd like to meet" and removed "along the way". No em dashes remain.
 - Catchr (2026-10-21): Kevin confirmed it is publicly released. Description on homepage and /profile now ends "Free and publicly released at jobcatchr.app." (was "for private users").
-- Open question for Kevin: is the "I/O '22: Story featured at Google I/O keynote" metric accurate? It sits on the Google developer community case study (homepage and /profile), not the accelerator.
+- I/O '22 metric (2026-10-21): Kevin confirmed a story from his Google developer community work was featured in the I/O 2022 keynote. Metric stays as is. No open content questions remain.
 
 Previous health (after removals, a23ef66): VERIFIED. TypeScript and lint clean; screenshots at 375/768/1440px; no console errors; no horizontal scroll.
 
