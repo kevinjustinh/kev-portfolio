@@ -1,0 +1,42 @@
+/* Scoped styles for the /profile MySpace exploration. Colors here are
+   period-accurate link states; theme colors live in lib/profile/themes.ts. */
+
+.kjh-root a { text-decoration: none; }
+.kjh-root a:hover { text-decoration: underline; }
+.kjh-root[data-era="retro"] a:hover { color: #ff6600 !important; }
+
+.kjh-focus:focus-visible,
+.kjh-root a:focus-visible,
+.kjh-root button:focus-visible,
+.kjh-root select:focus-visible,
+.kjh-root input:focus-visible,
+.kjh-root textarea:focus-visible {
+  outline: 2px solid #ff6600;
+  outline-offset: 2px;
+}
+
+.kjh-fade:hover { opacity: 0.8; }
+.kjh-pick:hover { background: #ffffcc !important; }
+.kjh-cs:hover { border-color: #151515 !important; }
+.kjh-pill:hover { background: #efeee9 !important; }
+.kjh-press:active { border-style: inset !important; }
+
+/* Small utility links get a bigger hit area without changing the look */
+.kjh-hit { display: inline-block; padding: 6px 2px; margin: -6px -2px; }
+
+.kjh-root input[type="range"] { accent-color: #ff5a1f; }
+
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 0.35s; }
+
+@keyframes kjhSpark { 0% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 100% { opacity: 0; transform: translate(-50%, 40px) scale(0.3) rotate(120deg); } }
+@keyframes kjhGlitter { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+@keyframes kjhMarq { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+@keyframes kjhBar { 0% { width: 0%; } 100% { width: 100%; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .kjh-root *, .kjh-root *::before, .kjh-root *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
