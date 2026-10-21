@@ -29,6 +29,16 @@ Kevin's Claude Design "Kevin Profile" (MySpace-style profile) is built as a sepa
 
 Kevin reviews `/profile` locally (`npm run dev`, then localhost:3000/profile). Decide on placeholders and whether this replaces or sits alongside the homepage. Do not deploy from this branch.
 
+## Gaps and ideas (2026-10-21, not started)
+
+Gaps found:
+- LIVE SITE BUG: link-preview image is missing. `app/layout.tsx` points Open Graph at `/og-image.png`, which does not exist (404 on kevinjhernandez.com). Shared links show no image. Quick fix, on main.
+- /profile: the three headline stats (4.9/5 CSAT, 520K+, 0→100 NPS) are only inside friend windows; not visible at a glance.
+- /profile placeholders: profile song; Music / Movies / Heroes.
+- /profile: contrast check of all 16 layouts still not done. Production build not run. Needs its own preview image if it goes public.
+
+Ideas proposed to Kevin (classic feel, 2026 tech): AIM-style "Ask KevBot" AI chat grounded in his résumé (recommended first); real guestbook with moderation; real "last login" from GitHub activity; visitor hit counter; windows that morph open from Top 8 tiles (View Transitions); share links whose preview image shows the visitor's chosen skin; a reward for unlocking all 8 badges.
+
 ## Earlier checkpoint — MySpace concepts (2026-10-15)
 
 
