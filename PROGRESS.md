@@ -62,7 +62,7 @@ Kevin asked for fresh portfolio concepts beyond MySpace. Proposed:
 
 Kevin picked five to mock up in Claude Design (2026-10-24): Discord server, Kev Wrapped, Group chat, BART map, Trading card pack. Dropped: Wii/Switch, Pokémon, iPod.
 
-Note: Kevin reports build requests for these were blocked. Likely cause (unconfirmed): prompts named real brands (Discord, Spotify, Nintendo, Pokémon, Apple, BART) or asked for made-up colleague quotes. Briefs now describe the style without brand names or logos, and label all people and quotes as placeholders. If blocked again, get the exact refusal wording.
+Note: Kevin reports build requests for these were blocked. Likely cause (unconfirmed): prompts named real brands (Discord, Spotify, Nintendo, Pokémon, Apple, BART) or asked for made-up colleague quotes. Kevin then chose to keep brand names in the brief as style references ("inspired by"); the brief still asks for original designs with no real logos, and labels all people and quotes as placeholders. If blocked again, get the exact refusal wording.
 
 ## Earlier checkpoint — MySpace concepts (2026-10-15)
 
