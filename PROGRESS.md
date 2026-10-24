@@ -1,8 +1,23 @@
 # Portfolio progress
 
-HANDOFF-ANCHOR: a23ef66
+HANDOFF-ANCHOR: 88cffe6b9218f29fd7808333ec2e319decd200c0
 
-Health: VERIFIED (2026-10-21, content-parity and copy pass). TypeScript and lint clean; /profile screenshotted at 375/768/1440px (`design-system/previews/screenshots/profile/parity-*.png`); blog box renders; no em dashes; no console errors; no horizontal scroll. Production build not run.
+Health: VERIFIED (2026-10-24, five standalone concept previews). Playwright CLI checked all five concepts at 375/768/1440px: 117 layout and interaction states passed, no console errors, broken images, horizontal page scrolling, or remote asset requests. TypeScript passed (`npx tsc --noEmit --incremental false`). This checkpoint changes preview files and this record only. No deployment.
+
+## Current checkpoint — five whole-site concept mockups (2026-10-24)
+
+- Open `design-system/previews/concepts-previews.html` directly in a browser. One self-contained HTML file includes embedded fonts, all seven projects' first screenshots, and the exact `public/resume.pdf`. No server or internet needed for the preview; outbound project/article links need internet.
+- Five picker tabs: community server with four working channels and a clearly labeled placeholder colleague roster; Kev Wrapped with five slides; scripted group chat with four suggested replies; transit map with four jobs in start-year order and seven undated project branches; trading pack with four career and seven project cards that flip for details.
+- Email and résumé remain available in the header. Email uses `kevin@email.com`, explicitly labeled as a placeholder. Content comes from `lib/data/about.ts`, `caseStudies.ts`, and `projects.ts`; source em dashes are converted to sentence breaks for display. No invented endorsements, quotes, or performance scores.
+- One read-only design review returned REVISE before implementation. Incorporated its requested compact mobile header, metric context, upfront server results, scripted-chat labeling, separate undated project branches, and clearly labeled card flip controls with retained focus. No other subagents used.
+- Checks: all server channels, all five Wrapped slides, all four chat answers, all eleven stations, and front/back controls for all eleven cards at all three widths. Tab arrow/Home/End navigation, Enter/Space controls, pack opening/resealing with focus return, and reduced-motion behavior passed. Reduced motion skips typing delay and runs no animations. Embedded images and résumé match their source bytes.
+- Screenshots: `design-system/previews/screenshots/concepts/`, including 39 individual captures and three comparison overviews. First phone captures exposed an overflowing pack title and a split Wrapped word; both corrected before final captures and checks.
+- Not checked: Firefox/Safari, screen-reader narration, outbound destination availability, or production build/lint (no app changes). Verified browser is Chromium through the Playwright CLI. No unresolved failures in the requested checks.
+- Recommendation: server concept. Role areas, availability, and results appear immediately, and the channel structure suits community/DevRel work. Transit map is the clearest career-history alternative.
+- Next: Kevin reviews the five previews and chooses a direction to refine. Production implementation belongs in a fresh session after a concept is selected. Stay on `design/myspace-profile-preview`; do not deploy.
+- Existing staged `docs/superpowers/plans/2026-07-05-v3-hybrid-redesign.md` and unrelated untracked files are excluded from this checkpoint.
+
+Previous health (2026-10-21, content-parity and copy pass): TypeScript and lint clean; /profile screenshotted at 375/768/1440px (`design-system/previews/screenshots/profile/parity-*.png`); blog box renders; no em dashes; no console errors; no horizontal scroll. Production build not run.
 
 ### Pass: homepage parity + writing guide (2026-10-21)
 - Added from the homepage: "Kevin's Latest Blog Entries" box (all 7 published articles, reusing `publishedArticles` from `lib/data/caseStudies.ts`, nav link "Blog"); the GenAI accelerator's fourth metric (XFN); the hero summary line in the profile box; Catchr's Chrome Web Store link.
