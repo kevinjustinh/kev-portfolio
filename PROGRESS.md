@@ -45,6 +45,23 @@ Gaps found:
 
 Ideas proposed to Kevin (classic feel, 2026 tech): AIM-style "Ask KevBot" AI chat grounded in his résumé (recommended first); real guestbook with moderation; real "last login" from GitHub activity; visitor hit counter; windows that morph open from Top 8 tiles (View Transitions); share links whose preview image shows the visitor's chosen skin; a reward for unlocking all 8 badges.
 
+Kevin picked for /profile (2026-10-24, not started): references shown as friend comments with photo, name, title (needs 4-6 real quotes from Kevin); per-application links like /profile?for=stripe that greet the company and add its logo to the Top 8; working "Add to Friends" button (saves contact card or opens LinkedIn, then a "request accepted" toast); hidden message for people who view the page source. Maybe: "About Me" as a 50-question survey. Later: real profile song, once a legally usable track is found.
+
+## New whole-site concepts (2026-10-24, brainstorm only, nothing built)
+
+Kevin asked for fresh portfolio concepts beyond MySpace. Proposed:
+
+- **Recommended: Discord server.** Site looks like a community you just joined: channels on the left (#welcome, #case-studies, #projects, #blog), work posted as messages, member list on the right showing past colleagues with job titles. Why first: for community/DevRel roles it doubles as proof he knows the hiring manager's world, and it reads instantly.
+- **Kev Wrapped:** career as Spotify Wrapped tap-through slides (e.g. "Top skill: community building", "4.9/5 satisfaction"). Any "top 1%" style line must be a real claim.
+- **Wii / Switch home menu:** projects as channel tiles, Mii avatar, cheerful menu feel. Scannable grid.
+- **Group chat:** site as a text thread; visitor taps reply bubbles ("What have you built?") and Kev "types" back. Strong on phones.
+- **Pokémon trainer card / Game Boy:** party = 6 best projects, moves = skills, gym badges = achievements.
+- **BART map:** each job a station, side projects as branch lines. Bay Area nod.
+- **Trading card pack:** open a pack, flip each project card for stats.
+- **iPod Classic:** click wheel through Projects, Case Studies, Contact.
+
+Next: Kevin decides between a preview file with 3 takes on Discord, or 3 different concepts side by side.
+
 ## Earlier checkpoint — MySpace concepts (2026-10-15)
 
 
